@@ -9,19 +9,30 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class Budget: Identifiable {
+struct Budget: Identifiable, Hashable {
+    
+    //why does this not work with Class, but does with struct?
     
     var id = UUID()
     var emojiString: String
     var title: String
-    var value: Double
+    var budgetedValue: Int
     var spendType: String
     
-    init(emojiString: String, title: String, value: Double, spendType: String) {
+    var currentSpend: Int = 0
+    
+    init(emojiString: String, title: String, budgetedValue: Int, spendType: String) {
+        
         self.emojiString = emojiString
         self.title = title
-        self.value = value
+        self.budgetedValue = budgetedValue
         self.spendType = spendType
+ 
     }
+    
+    func remainingValue() -> Int {
+        return budgetedValue - currentSpend
+    }
+
 
 }
