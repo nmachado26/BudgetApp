@@ -15,14 +15,15 @@ struct Home: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Enter Code").font(.title)
 
             HStack(spacing: 20) {
+                Text("$")
+                    .font(.title)
+                    .fontWeight(.semibold)
                 ForEach(code, id: \.self){ i in
                     Text(i)
                         .font(.title)
                         .fontWeight(.semibold)
-                        .foregroundColor(.black)
                 }
             }.padding(.vertical)
             
