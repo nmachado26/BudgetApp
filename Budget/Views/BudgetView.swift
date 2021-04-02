@@ -9,6 +9,9 @@ import SwiftUI
 
 //https://www.hackingwithswift.com/quick-start/swiftui/how-to-position-views-in-a-grid-using-lazyvgrid-and-lazyhgrid
 
+//https://www.hackingwithswift.com/articles/216/complete-guide-to-navigationview-in-swiftui
+
+
 struct BudgetView: View {
     
     let budgets = [
@@ -28,22 +31,35 @@ struct BudgetView: View {
     ]
     
     var body: some View {
-        VStack(alignment: .leading){
-            Text("Recurring")
-                .font(.title)
-                .padding(.leading, 16)
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(budgets, id: \.self) { budgetItem in
-                        BudgetCell(budgetItem: budgetItem)
+        NavigationView {
+            VStack(alignment: .leading){
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: SecondView()) {
+                        Image(systemName: "plus")
                     }
+                    .navigationTitle("Budget")
+                }.padding(.horizontal, 16)
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(budgets, id: \.self) { budgetItem in
+                            BudgetCell(budgetItem: budgetItem)
+                        }
+                    }
+                    .padding(.horizontal, 0)
+                    .padding(.top, 20)
                 }
-                .padding(.horizontal, 0)
-                .padding(.top, 20)
             }
         }
     }
 }
+
+struct SecondView: View {
+    var body: some View {
+        Text("This is the detail view")
+    }
+}
+
 
 struct BudgetCell : View {
     

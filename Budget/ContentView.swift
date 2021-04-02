@@ -17,15 +17,15 @@ struct ContentView: View {
                 selection == 0 ? Image(systemName: "house.fill") : Image(systemName: "house")
                 Text("Home")
             }.tag(0)
-            Text("DMs").tabItem {
+            BudgetView().tabItem {
                 selection == 1 ? Image(systemName: "house.fill") : Image(systemName: "house")
                 Text("Budget")
             }.tag(1)
-            Text("Mentions").tabItem {
+            RecurringView().tabItem {
                 selection == 2 ? Image(systemName: "house.fill") : Image(systemName: "house")
                 Text("Recurring")
             }.tag(2)
-            Text("Search").tabItem {
+            OverviewView().tabItem {
                 selection == 3 ? Image(systemName: "house.fill") : Image(systemName: "house")
                 Text("Overview")
             }.tag(3)
