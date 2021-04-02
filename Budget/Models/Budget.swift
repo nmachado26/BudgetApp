@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class Budget {
+class Budget: Identifiable {
     
+    var id = UUID()
     var emojiString: String
     var title: String
     var value: Double

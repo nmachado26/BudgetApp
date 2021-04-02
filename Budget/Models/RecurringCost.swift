@@ -9,14 +9,16 @@ import Foundation
 import UIKit
 
 
-class RecurringCost {
+class RecurringCost: Identifiable {
+    
+    var id = UUID()
     var emojiString: String
     var title: String
-    var value: Double
+    var value: Int
     var frequency: String
-    var monthlyCost: Double = 0 // want to make this nonoptional, but not in init.
+    var monthlyCost: Int = 0 // want to make this nonoptional, but not in init.
     
-    init(emojiString: String, title: String, value: Double, frequency: String) {
+    init(emojiString: String, title: String, value: Int, frequency: String) {
         self.emojiString = emojiString
         self.title = title
         self.value = value
