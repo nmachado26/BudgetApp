@@ -11,10 +11,22 @@ import SwiftUI
 
 //https://www.hackingwithswift.com/articles/216/complete-guide-to-navigationview-in-swiftui
 
+//https://github.com/markvanwijnen/NavigationBarLargeTitleItems
+
 
 struct BudgetView: View {
     
     let budgets = [
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
+        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
         Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
         Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
         Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
@@ -31,16 +43,19 @@ struct BudgetView: View {
     ]
     
     var body: some View {
+        
+        
         NavigationView {
             VStack(alignment: .leading){
-                HStack {
-                    Spacer()
-                    NavigationLink(destination: SecondView()) {
-                        Image(systemName: "plus")
-                    }
-                    .navigationTitle("Budget")
-                }.padding(.horizontal, 16)
                 ScrollView {
+                    HStack() {
+                        Spacer()
+                        NavigationLink(destination: SecondView()) {
+                            Image(systemName: "plus")
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(budgets, id: \.self) { budgetItem in
                             BudgetCell(budgetItem: budgetItem)
@@ -49,6 +64,8 @@ struct BudgetView: View {
                     .padding(.horizontal, 0)
                     .padding(.top, 20)
                 }
+                .navigationBarTitle("Budget")
+                //.navigationBarHidden(true)
             }
         }
     }

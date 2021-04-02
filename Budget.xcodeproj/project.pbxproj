@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6F42617C9640080EE6F /* AddBudgetView.swift */; };
+		27E9A6FD2617D77D0080EE6F /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */; };
 		27EC5D432617B24B00783D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D422617B24B00783D20 /* AppDelegate.swift */; };
 		27EC5D452617B24B00783D20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D442617B24B00783D20 /* SceneDelegate.swift */; };
 		27EC5D472617B24B00783D20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D462617B24B00783D20 /* ContentView.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27E9A6F42617C9640080EE6F /* AddBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetView.swift; sourceTree = "<group>"; };
+		27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		27EC5D3F2617B24B00783D20 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27EC5D422617B24B00783D20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27EC5D442617B24B00783D20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27E9A6FB2617D7710080EE6F /* ExtraViews */ = {
+			isa = PBXGroup;
+			children = (
+				27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */,
+			);
+			path = ExtraViews;
+			sourceTree = "<group>";
+		};
 		27EC5D362617B24B00783D20 = {
 			isa = PBXGroup;
 			children = (
@@ -97,10 +109,12 @@
 		27EC5D572617B2CD00783D20 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				27E9A6FB2617D7710080EE6F /* ExtraViews */,
 				27EC5D5D2617B32800783D20 /* Home.swift */,
 				27EC5D602617B33200783D20 /* BudgetView.swift */,
 				27EC5D632617B33D00783D20 /* OverviewView.swift */,
 				27EC5D662617B34600783D20 /* RecurringView.swift */,
+				27E9A6F42617C9640080EE6F /* AddBudgetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,10 +208,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				27EC5D432617B24B00783D20 /* AppDelegate.swift in Sources */,
+				27E9A6FD2617D77D0080EE6F /* SegmentedControlView.swift in Sources */,
 				27EC5D612617B33200783D20 /* BudgetView.swift in Sources */,
 				27EC5D6F2617BD3500783D20 /* Budget.swift in Sources */,
 				27EC5D6B2617B3F700783D20 /* ColorModel.swift in Sources */,
 				27EC5D672617B34600783D20 /* RecurringView.swift in Sources */,
+				27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */,
 				27EC5D5A2617B2E300783D20 /* Color.swift in Sources */,
 				27EC5D5E2617B32800783D20 /* Home.swift in Sources */,
 				27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */,
