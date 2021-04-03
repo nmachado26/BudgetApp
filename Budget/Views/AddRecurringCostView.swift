@@ -20,6 +20,7 @@ struct AddRecurringCostView: View {
 
     
     var body: some View {
+        
         NavigationView {
             VStack { //double V-stack :(
 

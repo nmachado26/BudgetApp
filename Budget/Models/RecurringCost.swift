@@ -38,6 +38,8 @@ class RecurringCost: Object, Identifiable {
       }
 
     func convertToMonthlyCost() {
+        self.monthlyCost = self.value
+        /*
         if frequency == "Weekly" {
             self.monthlyCost = value*4
         }
@@ -49,6 +51,6 @@ class RecurringCost: Object, Identifiable {
         }
         else {
             print("Could not find frequency for recurring cost in RecurringCost init()")
-        }
+        }*/
     }
 }

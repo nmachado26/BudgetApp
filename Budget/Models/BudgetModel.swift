@@ -8,10 +8,12 @@
 import Foundation
 import RealmSwift
 
-final class BudgetModel {
+final class BudgetModel: ObservableObject {
 
+    //ssoooooo inefficient. Make the BudgetModel a binding everywhere. temp solution
     var budgetsData: [Budget]
     var recurringsData: [RecurringCost]
+    var testStr: String
 
     //var realm: Realm - don't do singleton yet
 
@@ -26,14 +28,18 @@ final class BudgetModel {
         let realm = try! Realm()
         self.budgetsData = realm.objects(Budget.self).toArray(type: Budget.self)
 
+
+        self.recurringsData = realm.objects(RecurringCost.self).toArray(type: RecurringCost.self)
+
+        
+        self.testStr = "Before"
+        
         self.budgetsData.append(contentsOf: [
             Budget(emojiString: "🍔", title: "Food", budgetedValue: 300, spendType: "Need"),
             Budget(emojiString: "☕️", title: "Coffee", budgetedValue: 80, spendType: "Want"),
             Budget(emojiString: "💗", title: "Dates", budgetedValue: 200, spendType: "Want"),
         ])
-
-        self.recurringsData = realm.objects(RecurringCost.self).toArray(type: RecurringCost.self)
-
+        
         self.recurringsData.append(contentsOf: [
             RecurringCost(emojiString: "🏋️‍♀️", title: "Gym", value: 120, spendType: "Need"),
             RecurringCost(emojiString: "🏠", title: "Rent", value: 1300, spendType: "Need"),
@@ -44,6 +50,7 @@ final class BudgetModel {
 
     func addBudget(budget: Budget) {
 
+        self.testStr = "SUCCESS"
         let realm = try! Realm()
         try! realm.write {
             realm.add(budget)
@@ -57,14 +64,16 @@ final class BudgetModel {
 
     //why does class func not allow access to my lists (budgetsData)?
     func addRecurring(recurringItem: RecurringCost) {
-
+        self.testStr = "SUCCESS"
+        
         let realm = try! Realm()
         try! realm.write {
             realm.add(recurringItem)
-            print("added budget to realm")
+            print("added recurring cost to realm")
         }
 
         self.recurringsData.insert(recurringItem, at: 0)
+        print("hello")
     }
 
     func addExpense(budget: Budget, expenseString: String) {

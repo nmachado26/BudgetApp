@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270D765C261925A10085EFC1 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D765B261925A10085EFC1 /* RefreshView.swift */; };
 		277860522618087200DF4839 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277860512618087200DF4839 /* EmojiPicker.swift */; };
 		27786055261808CC00DF4839 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27786054261808CC00DF4839 /* String.swift */; };
 		2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778605B26181B5800DF4839 /* EmojiTextField.swift */; };
@@ -31,11 +32,13 @@
 		27EEB614261839A6007247AB /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEB613261839A6007247AB /* BudgetModel.swift */; };
 		27EEB61726183F50007247AB /* CategoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEB61626183F50007247AB /* CategoriesList.swift */; };
 		27FC268D26191589004247E2 /* AddRecurringCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC268C26191589004247E2 /* AddRecurringCostView.swift */; };
+		27FC2694261921B3004247E2 /* RecurringCostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC2693261921B3004247E2 /* RecurringCostsView.swift */; };
 		6072D9598DD2149E4D1ACC13 /* Pods_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205783F3736792D194D65C9A /* Pods_Budget.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		205783F3736792D194D65C9A /* Pods_Budget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		270D765B261925A10085EFC1 /* RefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
 		277860512618087200DF4839 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		27786054261808CC00DF4839 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2778605B26181B5800DF4839 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		27EEB613261839A6007247AB /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
 		27EEB61626183F50007247AB /* CategoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesList.swift; sourceTree = "<group>"; };
 		27FC268C26191589004247E2 /* AddRecurringCostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurringCostView.swift; sourceTree = "<group>"; };
+		27FC2693261921B3004247E2 /* RecurringCostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCostsView.swift; sourceTree = "<group>"; };
 		B94EF479F9A79DC656C7772E /* Pods-Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.release.xcconfig"; path = "Target Support Files/Pods-Budget/Pods-Budget.release.xcconfig"; sourceTree = "<group>"; };
 		C9AB336985F0BC29DF360590 /* Pods-Budget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.debug.xcconfig"; path = "Target Support Files/Pods-Budget/Pods-Budget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,11 +142,13 @@
 				27E9A6FB2617D7710080EE6F /* ExtraViews */,
 				27EC5D5D2617B32800783D20 /* Home.swift */,
 				27EC5D602617B33200783D20 /* BudgetView.swift */,
+				27FC2693261921B3004247E2 /* RecurringCostsView.swift */,
 				27EC5D632617B33D00783D20 /* OverviewView.swift */,
 				27EC5D662617B34600783D20 /* RecurringView.swift */,
 				27E9A6F42617C9640080EE6F /* AddBudgetView.swift */,
 				27EEB61626183F50007247AB /* CategoriesList.swift */,
 				27FC268C26191589004247E2 /* AddRecurringCostView.swift */,
+				270D765B261925A10085EFC1 /* RefreshView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 				27EC5D6F2617BD3500783D20 /* Budget.swift in Sources */,
 				27EC5D6B2617B3F700783D20 /* ColorModel.swift in Sources */,
 				27EC5D672617B34600783D20 /* RecurringView.swift in Sources */,
+				270D765C261925A10085EFC1 /* RefreshView.swift in Sources */,
 				277860522618087200DF4839 /* EmojiPicker.swift in Sources */,
 				27EEB61726183F50007247AB /* CategoriesList.swift in Sources */,
 				27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */,
@@ -314,6 +321,7 @@
 				27EC5D5E2617B32800783D20 /* Home.swift in Sources */,
 				27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */,
 				277A7E862618F8DC0062E5B5 /* RealmExtensions.swift in Sources */,
+				27FC2694261921B3004247E2 /* RecurringCostsView.swift in Sources */,
 				27EEB614261839A6007247AB /* BudgetModel.swift in Sources */,
 				27EC5D452617B24B00783D20 /* SceneDelegate.swift in Sources */,
 				2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */,

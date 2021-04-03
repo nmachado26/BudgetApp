@@ -14,7 +14,7 @@ import SwiftUI
 //https://github.com/markvanwijnen/NavigationBarLargeTitleItems
 
 
-struct BudgetView: View {
+struct RefreshView: View {
 
     @Binding var dataModel: BudgetModel
     @State private var showingAddBudgetView = false
@@ -40,52 +40,46 @@ struct BudgetView: View {
                             Image(systemName: "plus")
                         })
                         .sheet(isPresented: $showingAddBudgetView) {
-                            AddBudgetView(dataModel: $dataModel, isPresented: $showingAddBudgetView)
+                            AddRecurringCostView(dataModel: $dataModel, isPresented: $showingAddBudgetView)
                         }
 
                     }
                     .padding(.horizontal, 16)
 
                     Text(dataModel.testStr)
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(dataModel.budgetsData.indices, id: \.self) { i in
-                            BudgetCell(budgetItem: $dataModel.budgetsData[i])
+                    //LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(dataModel.recurringsData.indices, id: \.self) { i in
+                            RefreshCell(recurringItem: $dataModel.recurringsData[i])
                         }
-                    }
+                    //}
                     .padding(.horizontal, 0)
                     .padding(.top, 20)
                 }
-                .navigationBarTitle("Budget")
+                .navigationBarTitle("Refresh")
                 //.navigationBarHidden(true)
             }
         }
     }
 }
 
-struct BudgetCell : View {
+struct RefreshCell : View {
 
-    @Binding var budgetItem: Budget
+    @Binding var recurringItem: RecurringCost
 
     var body: some View {
-        VStack {
+        HStack {
             ZStack {
                 Rectangle()
                     .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.black)
                     .opacity(0.1)
                     .cornerRadius(15)
-                Text(budgetItem.emojiString)
+                Text(recurringItem.emojiString)
                     .font(.title)
             }
-            Text(budgetItem.title)
-            Text("$\(budgetItem.remainingValue()) left")
-
-        }
+            Text(recurringItem.title)
+            Spacer()
+            Text("$\(recurringItem.monthlyCost) / mo ")
+        }.padding(.horizontal, 0)
     }
 }
-
-//struct BudgetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BudgetView(dataModel: model)
-//    }
-//}

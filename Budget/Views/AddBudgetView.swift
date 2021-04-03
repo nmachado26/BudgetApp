@@ -154,9 +154,11 @@ struct CreateButton : View {
         Button(action: {
             print("button pressed")
             if self.objectType == "budget" {
-                self.saveBudgetModel()
+               // self.saveBudgetModel()
+                self.saveRecurringCostModel()
             }
             else {
+                //self.saveBudgetModel()
                 self.saveRecurringCostModel()
             }
             isPresented = false
@@ -200,7 +202,7 @@ struct CreateButton : View {
             print(viewModel)
         }
         else {
-            print("ERROR saveBudgetModel budgetValue can't be converted to Int")
+            print("ERROR saveRecurringCostModel() budgetValue can't be converted to Int")
         }
     }
 }

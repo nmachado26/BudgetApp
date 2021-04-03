@@ -15,6 +15,14 @@ struct RecurringView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading){
+                Button(action: {
+                    self.showingAddRecurringView = true
+                }, label: {
+                    Image(systemName: "plus")
+                })
+                .sheet(isPresented: $showingAddRecurringView) {
+                   AddRecurringCostView(dataModel: $dataModel, isPresented: $showingAddRecurringView)
+                }
                 ScrollView {
                     HStack() {
                         Spacer()
@@ -34,6 +42,7 @@ struct RecurringView: View {
                     ForEach(dataModel.recurringsData.indices, id: \.self) { i in
                         RecurringRow(recurringItem: $dataModel.recurringsData[i])
                             .padding(.vertical, 20)
+                            .padding(.horizontal, 20)
                     }.padding(.top, 10)
                 }.navigationBarTitle("RecurringNav")
             }
