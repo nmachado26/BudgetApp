@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//https://stackoverflow.com/questions/11382753/change-the-ios-keyboard-layout-to-emoji/44753740#44753740
+
 struct AddBudgetView: View {
     
     var body: some View {
@@ -97,11 +99,19 @@ struct SegmentedControlInput: View {
 }
 
 struct CategoryButton: View {
+    
+    @State var text = ""
+    @State var isFirstResponder = false
+    
     var body: some View {
         Button(action: {
+            self.isFirstResponder = true
             print("button pressed")
         }) {
             ZStack {
+                //so hacky :(
+                LegacyTextField(text: $text, isFirstResponder: $isFirstResponder)
+                    
                 Rectangle()
                     .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.black)
@@ -136,20 +146,6 @@ struct CreateButton : View {
     }
 }
 
-class EmojiTextField: UITextField {
-
-   // required for iOS 13
-   override var textInputContextIdentifier: String? { "" } // return non-nil to show the Emoji keyboard ¯\_(ツ)_/¯
-
-    override var textInputMode: UITextInputMode? {
-        for mode in UITextInputMode.activeInputModes {
-            if mode.primaryLanguage == "emoji" {
-                return mode
-            }
-        }
-        return nil
-    }
-}
 
 struct AddBudgetView_Previews: PreviewProvider {
     static var previews: some View {
