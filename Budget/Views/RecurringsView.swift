@@ -46,10 +46,9 @@ struct RecurringsView: View {
                     }
                     .padding(.horizontal, 16)
 
-                    Text(dataModel.testStr)
                     //LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(dataModel.recurringsData.indices, id: \.self) { i in
-                            RefreshCell(recurringItem: $dataModel.recurringsData[i])
+                            RecurringCell(recurringItem: $dataModel.recurringsData[i])
                         }
                     //}
                     .padding(.horizontal, 0)
@@ -62,7 +61,7 @@ struct RecurringsView: View {
     }
 }
 
-struct RefreshCell : View {
+struct RecurringCell : View {
 
     @Binding var recurringItem: RecurringCost
 

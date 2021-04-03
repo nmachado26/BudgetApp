@@ -154,8 +154,8 @@ struct CreateButton : View {
         Button(action: {
             print("button pressed")
             if self.objectType == "budget" {
-               // self.saveBudgetModel()
-                self.saveRecurringCostModel()
+                self.saveBudgetModel()
+               // self.saveRecurringCostModel()
             }
             else {
                 //self.saveBudgetModel()

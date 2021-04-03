@@ -46,7 +46,6 @@ struct BudgetView: View {
                     }
                     .padding(.horizontal, 16)
 
-                    Text(dataModel.testStr)
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(dataModel.budgetsData.indices, id: \.self) { i in
                             BudgetCell(budgetItem: $dataModel.budgetsData[i])
