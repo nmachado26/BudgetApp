@@ -34,4 +34,18 @@ final class BudgetModel {
     func addRecurring(recurringItem: RecurringCost) {
         self.recurringsData.insert(recurringItem, at: 0)
     }
+    
+    func addExpense(budget: Budget, expenseString: String) {
+        guard let i = self.budgetsData.firstIndex(of: budget) else {
+            print("ERROR addExpense. no instance of budget found")
+            return
+        }
+        guard let expense = Int(expenseString) else {
+            print("ERROR addExpense. expense cant be converted to int")
+            return
+        }
+        let updatedBudget = Budget(emojiString: budget.emojiString, title: budget.title, budgetedValue: budget.budgetedValue - expense, spendType: budget.spendType)
+        self.budgetsData.insert(updatedBudget, at: i)
+        self.budgetsData.remove(at: i+1)
+    }
 }

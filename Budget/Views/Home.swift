@@ -96,7 +96,7 @@ struct Home: View {
 //                }
             
                 Spacer()
-                NumberPad(codes: $code)
+                NumberPad(dataModel: $dataModel, codes: $code, selectedCategory: $selectedCategory)
             }
         }
     }
@@ -104,7 +104,10 @@ struct Home: View {
 
 struct NumberPad : View {
     
+    @Binding var dataModel: BudgetModel
     @Binding var codes : [String]
+    @Binding var selectedCategory : Budget
+    
     
     var body : some View {
         
@@ -124,6 +127,14 @@ struct NumberPad : View {
                             }
                             else if j.value == "checkmark.circle.fill" {
                                 print("done: \(self.getCode())")
+                                
+                                var expenseStr = ""
+                                for num in self.codes {
+                                    expenseStr = expenseStr + num
+                                }
+                                
+                                dataModel.addExpense(budget: self.selectedCategory, expenseString: expenseStr)
+                                
                                 self.codes.removeAll()
                             }
                             else {
@@ -174,7 +185,7 @@ struct row : Identifiable {
 
 var datas = [
     type(id: 0, row: [row(id: 0, value: "1"), row(id: 1, value: "2"), row(id: 2, value: "3")]),
-    type(id: 1, row: [row(id: 0, value: "5"), row(id: 1, value: "5"), row(id: 2, value: "6")]),
+    type(id: 1, row: [row(id: 0, value: "4"), row(id: 1, value: "5"), row(id: 2, value: "6")]),
     type(id: 2, row: [row(id: 0, value: "7"), row(id: 1, value: "8"), row(id: 2, value: "9")]),
     type(id: 3, row: [row(id: 0, value: "delete.left.fill"), row(id: 1, value: "0"), row(id: 2, value: "checkmark.circle.fill")])
     

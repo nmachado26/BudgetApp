@@ -39,8 +39,8 @@ struct BudgetView: View {
                     .padding(.horizontal, 16)
                     
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(dataModel.budgetsData, id: \.self) { budgetItem in
-                            BudgetCell(budgetItem: budgetItem)
+                        ForEach(dataModel.budgetsData.indices, id: \.self) { i in
+                            BudgetCell(budgetItem: $dataModel.budgetsData[i])
                         }
                     }
                     .padding(.horizontal, 0)
@@ -55,7 +55,7 @@ struct BudgetView: View {
 
 struct BudgetCell : View {
     
-    var budgetItem: Budget
+    @Binding var budgetItem: Budget
     
     var body: some View {
         VStack {
