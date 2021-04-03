@@ -22,7 +22,7 @@ struct ContentView: View {
                 selection == 1 ? Image(systemName: "house.fill") : Image(systemName: "house")
                 Text("Budget")
             }.tag(1)
-            RefreshView(dataModel: self.$dataModel).tabItem {
+            RecurringsView(dataModel: self.$dataModel).tabItem {
                 selection == 2 ? Image(systemName: "house.fill") : Image(systemName: "house")
                 Text("Recurring")
             }.tag(2)
