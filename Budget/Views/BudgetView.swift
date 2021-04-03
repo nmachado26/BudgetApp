@@ -17,6 +17,7 @@ import SwiftUI
 struct BudgetView: View {
     
     @Binding var dataModel: BudgetModel
+    @State private var showingAddBudgetView = false
     
     let columns = [
         GridItem(.flexible()),
@@ -32,9 +33,16 @@ struct BudgetView: View {
                 ScrollView {
                     HStack() {
                         Spacer()
-                        NavigationLink(destination: AddBudgetView(dataModel: self.$dataModel)) {
+                        
+                        Button(action: {
+                            self.showingAddBudgetView = true
+                        }, label: {
                             Image(systemName: "plus")
+                        })
+                        .sheet(isPresented: $showingAddBudgetView) {
+                            AddBudgetView(dataModel: $dataModel, isPresented: $showingAddBudgetView)
                         }
+                        
                     }
                     .padding(.horizontal, 16)
                     
