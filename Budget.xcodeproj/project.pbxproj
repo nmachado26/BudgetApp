@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		277860522618087200DF4839 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277860512618087200DF4839 /* EmojiPicker.swift */; };
+		27786055261808CC00DF4839 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27786054261808CC00DF4839 /* String.swift */; };
 		27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6F42617C9640080EE6F /* AddBudgetView.swift */; };
 		27E9A6FD2617D77D0080EE6F /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */; };
 		27EC5D432617B24B00783D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D422617B24B00783D20 /* AppDelegate.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		277860512618087200DF4839 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
+		27786054261808CC00DF4839 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		27E9A6F42617C9640080EE6F /* AddBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetView.swift; sourceTree = "<group>"; };
 		27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		27EC5D3F2617B24B00783D20 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */,
+				277860512618087200DF4839 /* EmojiPicker.swift */,
 			);
 			path = ExtraViews;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				27EC5D592617B2E300783D20 /* Color.swift */,
+				27786054261808CC00DF4839 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,11 +219,13 @@
 				27EC5D6F2617BD3500783D20 /* Budget.swift in Sources */,
 				27EC5D6B2617B3F700783D20 /* ColorModel.swift in Sources */,
 				27EC5D672617B34600783D20 /* RecurringView.swift in Sources */,
+				277860522618087200DF4839 /* EmojiPicker.swift in Sources */,
 				27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */,
 				27EC5D5A2617B2E300783D20 /* Color.swift in Sources */,
 				27EC5D5E2617B32800783D20 /* Home.swift in Sources */,
 				27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */,
 				27EC5D452617B24B00783D20 /* SceneDelegate.swift in Sources */,
+				27786055261808CC00DF4839 /* String.swift in Sources */,
 				27EC5D472617B24B00783D20 /* ContentView.swift in Sources */,
 				27EC5D642617B33D00783D20 /* OverviewView.swift in Sources */,
 			);

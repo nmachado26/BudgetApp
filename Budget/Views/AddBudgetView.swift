@@ -16,17 +16,22 @@ struct AddBudgetView: View {
                 VStack {
                     Text("New Budget")
                         .font(.title)
+                        .padding(.bottom, 20)
                     CategoryButton()
                     
                 }
+                .padding(.bottom, 20)
                 .navigationBarTitle("New Budget", displayMode: .inline)
                 .navigationBarHidden(true)
                 
                 
                 
                 TextInput(prompt: "Enter Title")
+                    .padding(.bottom, 20)
                 TextInput(prompt: "Enter Budget")
+                    .padding(.bottom, 20)
                 SegmentedControlInput(prompt: "Choose type")
+                    .padding(.bottom, 60)
                 CreateButton()
                 
                 
@@ -36,16 +41,37 @@ struct AddBudgetView: View {
 }
 
 struct TextInput: View {
+    
     var prompt: String
+    @State private var givenName: String = ""
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
-            Text("NAME")
+                .padding(.bottom, 10)
+            CustomTextField()
+                .padding(.bottom, 5)
             Rectangle()
                 .frame(height:1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .opacity(0.2)
         }
         .padding(.horizontal, 24)
+    }
+}
+
+struct CustomTextField : View {
+    @State private var username: String = ""
+    @State private var isEditing = false
+    
+    @State private var givenName: String = ""
+    @State private var familyName: String = ""
+    
+    var body: some View {
+        TextField(
+            "",
+            text: $givenName)
+            .disableAutocorrection(true)
+            .textFieldStyle(PlainTextFieldStyle())
     }
 }
 
@@ -59,7 +85,9 @@ struct SegmentedControlInput: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
-            SegmentedControlView(selected: self.$selected, segments: [Segment(id: 0, segmentName: "Popular"), Segment(id: 1, segmentName: "New"), Segment(id: 2, segmentName: "Follow")])
+                .padding(.bottom, 20)
+            SegmentedControlView(selected: self.$selected, segments: [Segment(id: 0, segmentName: "Need"), Segment(id: 1, segmentName: "Want")])
+                .padding(.bottom, 15)
             Rectangle()
                 .frame(height:1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .opacity(0.2)
@@ -84,6 +112,7 @@ struct CategoryButton: View {
                 //Image(systemName: "face.smiling")
             }
         }
+        .padding(.bottom, 8)
         Text("+ Add emoji")
     }
 }
@@ -96,14 +125,29 @@ struct CreateButton : View {
         }) {
             ZStack {
                 Rectangle()
-                    .frame(width: 140, height: 84, alignment: .center)
+                    .frame(width: 140, height: 40, alignment: .center)
                     .foregroundColor(.black)
                     .cornerRadius(15)
                 Text("Create")
-                    .font(.title)
+                    .font(.headline)
                     .foregroundColor(.white)
             }
         }
+    }
+}
+
+class EmojiTextField: UITextField {
+
+   // required for iOS 13
+   override var textInputContextIdentifier: String? { "" } // return non-nil to show the Emoji keyboard ¯\_(ツ)_/¯
+
+    override var textInputMode: UITextInputMode? {
+        for mode in UITextInputMode.activeInputModes {
+            if mode.primaryLanguage == "emoji" {
+                return mode
+            }
+        }
+        return nil
     }
 }
 

@@ -30,7 +30,7 @@ struct SegmentedControlView: View {
                     }
                 }.foregroundColor(self.selected == segment.id ? .black : .gray)
             }
-        }.padding(20)
+        }
         .clipShape(Capsule())
         .animation(.default)
     }

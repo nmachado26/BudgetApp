@@ -34,8 +34,6 @@ struct BudgetView: View {
         Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need")
     ]
     
-    let data = (1...100).map { "Item \($0)" }
-    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
