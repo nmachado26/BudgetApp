@@ -12,6 +12,8 @@ struct Home: View {
     
     @Binding var dataModel: BudgetModel
     
+    @State var selectedCategory : String = ""
+    
     @State var code: [String] = []
     
     var body: some View {
@@ -32,14 +34,19 @@ struct Home: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: CategoriesList(dataModel: self.$dataModel)) {
+                NavigationLink(destination: CategoriesList(dataModel: self.$dataModel, selectedCategory: $selectedCategory)) {
                     ZStack {
                         Rectangle()
                             .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .foregroundColor(.black)
                             .opacity(0.1)
                             .cornerRadius(50)
-                        Image(systemName: "plus")
+                        if self.selectedCategory == "" {
+                            Image(systemName: "plus")
+                        }
+                        else {
+                            Text(selectedCategory)
+                        }
                     }
 
                 }
