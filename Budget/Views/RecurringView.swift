@@ -10,17 +10,33 @@ import SwiftUI
 struct RecurringView: View {
     
     @Binding var dataModel: BudgetModel
+    @State private var showingAddRecurringView = false
     
     var body: some View {
-        VStack(alignment: .leading){
-            Spacer()
-            Text("Recurring")
-                .font(.title)
-                .padding(.leading, 16)
-            List(dataModel.recurringsData) { recurringItem in
-                RecurringRow(recurringItem: recurringItem)
-                    .padding(.vertical, 20)
-            }.padding(.top, 10)
+        NavigationView {
+            VStack(alignment: .leading){
+                ScrollView {
+                    HStack() {
+                        Spacer()
+                        
+                        Button(action: {
+                            self.showingAddRecurringView = true
+                        }, label: {
+                            Image(systemName: "plus")
+                        })
+                        .sheet(isPresented: $showingAddRecurringView) {
+                           AddRecurringCostView(dataModel: $dataModel, isPresented: $showingAddRecurringView)
+                        }
+                        
+                    }
+                    .padding(.horizontal, 16)
+                    Spacer()
+                    ForEach(dataModel.recurringsData) { recurringItem in
+                        RecurringRow(recurringItem: recurringItem)
+                            .padding(.vertical, 20)
+                    }.padding(.top, 10)
+                }.navigationBarTitle("RecurringNav")
+            }
         }
     }
 }

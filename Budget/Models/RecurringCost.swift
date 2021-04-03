@@ -17,17 +17,18 @@ class RecurringCost: Object, Identifiable {
     @objc dynamic var emojiString: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var value: Int = 0
+    @objc dynamic var spendType : String = ""
     @objc dynamic var frequency: String = ""
     @objc dynamic var monthlyCost: Int = 0 // want to make this nonoptional, but not in init.
 
-    convenience init(emojiString: String, title: String, value: Int, frequency: String) {
+    convenience init(emojiString: String, title: String, value: Int, spendType: String) {
 
         self.init()
 
         self.emojiString = emojiString
         self.title = title
         self.value = value
-        self.frequency = frequency
+        self.spendType = spendType
 
         self.convertToMonthlyCost()
     }

@@ -42,7 +42,7 @@ struct AddBudgetView: View {
                     .padding(.bottom, 20)
                 SegmentedControlInput(prompt: "Choose type", selected: $selectedType)
                     .padding(.bottom, 60)
-                CreateButton(dataModel: $dataModel, emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, isPresented: $isPresented)
+                CreateButton(dataModel: $dataModel, emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, objectType: "budget", isPresented: $isPresented)
 
 
             }
@@ -145,14 +145,20 @@ struct CreateButton : View {
     @Binding var titleText: String
     @Binding var budgetText: String
     @Binding var selectedType : Int
-
+    
+    var objectType : String
     @Binding var isPresented: Bool
 
     var body: some View {
 
         Button(action: {
             print("button pressed")
-            self.saveBudgetModel()
+            if self.objectType == "budget" {
+                self.saveBudgetModel()
+            }
+            else {
+                self.saveRecurringCostModel()
+            }
             isPresented = false
         }) {
             ZStack {
@@ -176,6 +182,21 @@ struct CreateButton : View {
         if let budgetValue = Int(self.budgetText) {
             let viewModel = Budget(emojiString: self.emojiText, title: self.titleText, budgetedValue: budgetValue, spendType: type)
             self.dataModel.addBudget(budget: viewModel)
+            print(viewModel)
+        }
+        else {
+            print("ERROR saveBudgetModel budgetValue can't be converted to Int")
+        }
+    }
+    
+    func saveRecurringCostModel() {
+        var type = "Want"
+        if self.selectedType == 0 {
+            type = "Need"
+        }
+        if let budgetValue = Int(self.budgetText) {
+            let viewModel = RecurringCost(emojiString: self.emojiText, title: self.titleText, value: budgetValue, spendType: type)
+            self.dataModel.addRecurring(recurringItem: viewModel)
             print(viewModel)
         }
         else {

@@ -35,9 +35,9 @@ final class BudgetModel {
         self.recurringsData = realm.objects(RecurringCost.self).toArray(type: RecurringCost.self)
 
         self.recurringsData.append(contentsOf: [
-            RecurringCost(emojiString: "🏋️‍♀️", title: "Gym", value: 120, frequency: "Monthly"),
-            RecurringCost(emojiString: "🏠", title: "Rent", value: 1300, frequency: "Monthly"),
-            RecurringCost(emojiString: "🎥", title: "Netflix", value: 10, frequency: "Monthly")
+            RecurringCost(emojiString: "🏋️‍♀️", title: "Gym", value: 120, spendType: "Need"),
+            RecurringCost(emojiString: "🏠", title: "Rent", value: 1300, spendType: "Need"),
+            RecurringCost(emojiString: "🎥", title: "Netflix", value: 10, spendType: "Want")
         ])
 
     }

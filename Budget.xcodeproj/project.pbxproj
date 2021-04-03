@@ -30,6 +30,7 @@
 		27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D712617BDEB00783D20 /* RecurringCost.swift */; };
 		27EEB614261839A6007247AB /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEB613261839A6007247AB /* BudgetModel.swift */; };
 		27EEB61726183F50007247AB /* CategoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEB61626183F50007247AB /* CategoriesList.swift */; };
+		27FC268D26191589004247E2 /* AddRecurringCostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC268C26191589004247E2 /* AddRecurringCostView.swift */; };
 		6072D9598DD2149E4D1ACC13 /* Pods_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205783F3736792D194D65C9A /* Pods_Budget.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		27EC5D712617BDEB00783D20 /* RecurringCost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCost.swift; sourceTree = "<group>"; };
 		27EEB613261839A6007247AB /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
 		27EEB61626183F50007247AB /* CategoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesList.swift; sourceTree = "<group>"; };
+		27FC268C26191589004247E2 /* AddRecurringCostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecurringCostView.swift; sourceTree = "<group>"; };
 		B94EF479F9A79DC656C7772E /* Pods-Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.release.xcconfig"; path = "Target Support Files/Pods-Budget/Pods-Budget.release.xcconfig"; sourceTree = "<group>"; };
 		C9AB336985F0BC29DF360590 /* Pods-Budget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.debug.xcconfig"; path = "Target Support Files/Pods-Budget/Pods-Budget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 				27EC5D662617B34600783D20 /* RecurringView.swift */,
 				27E9A6F42617C9640080EE6F /* AddBudgetView.swift */,
 				27EEB61626183F50007247AB /* CategoriesList.swift */,
+				27FC268C26191589004247E2 /* AddRecurringCostView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				277860522618087200DF4839 /* EmojiPicker.swift in Sources */,
 				27EEB61726183F50007247AB /* CategoriesList.swift in Sources */,
 				27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */,
+				27FC268D26191589004247E2 /* AddRecurringCostView.swift in Sources */,
 				27EC5D5A2617B2E300783D20 /* Color.swift in Sources */,
 				27EC5D5E2617B32800783D20 /* Home.swift in Sources */,
 				27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */,
