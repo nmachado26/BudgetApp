@@ -7,26 +7,35 @@
 
 import Foundation
 import UIKit
+import RealmSwift
+import Realm
 
 
-class RecurringCost: Identifiable {
-    
-    var id = UUID()
-    var emojiString: String
-    var title: String
-    var value: Int
-    var frequency: String
-    var monthlyCost: Int = 0 // want to make this nonoptional, but not in init.
-    
-    init(emojiString: String, title: String, value: Int, frequency: String) {
+class RecurringCost: Object, Identifiable {
+
+    @objc dynamic var id = UUID().uuidString
+    @objc dynamic var emojiString: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var value: Int = 0
+    @objc dynamic var frequency: String = ""
+    @objc dynamic var monthlyCost: Int = 0 // want to make this nonoptional, but not in init.
+
+    convenience init(emojiString: String, title: String, value: Int, frequency: String) {
+
+        self.init()
+
         self.emojiString = emojiString
         self.title = title
         self.value = value
         self.frequency = frequency
-        
+
         self.convertToMonthlyCost()
     }
-    
+
+    override static func primaryKey() -> String? {
+        return "id"
+      }
+
     func convertToMonthlyCost() {
         if frequency == "Weekly" {
             self.monthlyCost = value*4

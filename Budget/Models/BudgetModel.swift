@@ -6,35 +6,67 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class BudgetModel {
-    
+
     var budgetsData: [Budget]
     var recurringsData: [RecurringCost]
-    
+
+    //var realm: Realm - don't do singleton yet
+
     init() {
-        self.budgetsData = [
+
+        do {
+            let realm = try Realm()
+        } catch {
+            print(error.localizedDescription)
+        }
+
+        let realm = try! Realm()
+        self.budgetsData = realm.objects(Budget.self).toArray(type: Budget.self)
+
+        self.budgetsData.append(contentsOf: [
             Budget(emojiString: "🍔", title: "Food", budgetedValue: 300, spendType: "Need"),
             Budget(emojiString: "☕️", title: "Coffee", budgetedValue: 80, spendType: "Want"),
             Budget(emojiString: "💗", title: "Dates", budgetedValue: 200, spendType: "Want"),
-        ]
-        
-        self.recurringsData = [
+        ])
+
+        self.recurringsData = realm.objects(RecurringCost.self).toArray(type: RecurringCost.self)
+
+        self.recurringsData.append(contentsOf: [
             RecurringCost(emojiString: "🏋️‍♀️", title: "Gym", value: 120, frequency: "Monthly"),
             RecurringCost(emojiString: "🏠", title: "Rent", value: 1300, frequency: "Monthly"),
             RecurringCost(emojiString: "🎥", title: "Netflix", value: 10, frequency: "Monthly")
-        ]
+        ])
+
     }
-    
+
     func addBudget(budget: Budget) {
+
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(budget)
+            print("added budget to realm")
+        }
+
         self.budgetsData.insert(budget, at: 0)
+
+
     }
-    
+
     //why does class func not allow access to my lists (budgetsData)?
     func addRecurring(recurringItem: RecurringCost) {
+
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(recurringItem)
+            print("added budget to realm")
+        }
+
         self.recurringsData.insert(recurringItem, at: 0)
     }
-    
+
     func addExpense(budget: Budget, expenseString: String) {
         guard let i = self.budgetsData.firstIndex(of: budget) else {
             print("ERROR addExpense. no instance of budget found")
@@ -44,8 +76,16 @@ final class BudgetModel {
             print("ERROR addExpense. expense cant be converted to int")
             return
         }
-        let updatedBudget = Budget(emojiString: budget.emojiString, title: budget.title, budgetedValue: budget.budgetedValue - expense, spendType: budget.spendType)
-        self.budgetsData.insert(updatedBudget, at: i)
-        self.budgetsData.remove(at: i+1)
+//        budget.currentSpend = budget.currentSpend + expense
+//        let updatedBudget = Budget(emojiString: budget.emojiString, title: budget.title, budgetedValue: budget.budgetedValue - expense, spendType: budget.spendType)
+//        self.budgetsData.insert(updatedBudget, at: i)
+//        self.budgetsData.remove(at: i+1)
+
+
+        let realm = try! Realm()
+        try! realm.write {
+            budget.currentSpend = budget.currentSpend + expense
+        }
+        print("hi")
     }
 }

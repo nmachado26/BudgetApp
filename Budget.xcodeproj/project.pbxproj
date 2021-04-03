@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		27786055261808CC00DF4839 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27786054261808CC00DF4839 /* String.swift */; };
 		2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778605B26181B5800DF4839 /* EmojiTextField.swift */; };
 		2778606226181E1C00DF4839 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778606126181E1C00DF4839 /* CustomButton.swift */; };
+		277A7E862618F8DC0062E5B5 /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277A7E852618F8DC0062E5B5 /* RealmExtensions.swift */; };
 		27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6F42617C9640080EE6F /* AddBudgetView.swift */; };
 		27E9A6FD2617D77D0080EE6F /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */; };
 		27EC5D432617B24B00783D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D422617B24B00783D20 /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 		27786054261808CC00DF4839 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2778605B26181B5800DF4839 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
 		2778606126181E1C00DF4839 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		277A7E852618F8DC0062E5B5 /* RealmExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtensions.swift; sourceTree = "<group>"; };
 		27E9A6F42617C9640080EE6F /* AddBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetView.swift; sourceTree = "<group>"; };
 		27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		27EC5D3F2617B24B00783D20 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 			children = (
 				27EC5D592617B2E300783D20 /* Color.swift */,
 				27786054261808CC00DF4839 /* String.swift */,
+				277A7E852618F8DC0062E5B5 /* RealmExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -168,7 +171,6 @@
 				C9AB336985F0BC29DF360590 /* Pods-Budget.debug.xcconfig */,
 				B94EF479F9A79DC656C7772E /* Pods-Budget.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -307,6 +309,7 @@
 				27EC5D5A2617B2E300783D20 /* Color.swift in Sources */,
 				27EC5D5E2617B32800783D20 /* Home.swift in Sources */,
 				27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */,
+				277A7E862618F8DC0062E5B5 /* RealmExtensions.swift in Sources */,
 				27EEB614261839A6007247AB /* BudgetModel.swift in Sources */,
 				27EC5D452617B24B00783D20 /* SceneDelegate.swift in Sources */,
 				2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */,

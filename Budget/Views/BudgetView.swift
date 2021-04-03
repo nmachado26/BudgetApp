@@ -15,25 +15,25 @@ import SwiftUI
 
 
 struct BudgetView: View {
-    
+
     @Binding var dataModel: BudgetModel
     @State private var showingAddBudgetView = false
-    
+
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
-    
+
     var body: some View {
-        
-        
+
+
         NavigationView {
             VStack(alignment: .leading){
                 ScrollView {
                     HStack() {
                         Spacer()
-                        
+
                         Button(action: {
                             self.showingAddBudgetView = true
                         }, label: {
@@ -42,10 +42,10 @@ struct BudgetView: View {
                         .sheet(isPresented: $showingAddBudgetView) {
                             AddBudgetView(dataModel: $dataModel, isPresented: $showingAddBudgetView)
                         }
-                        
+
                     }
                     .padding(.horizontal, 16)
-                    
+
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(dataModel.budgetsData.indices, id: \.self) { i in
                             BudgetCell(budgetItem: $dataModel.budgetsData[i])
@@ -62,9 +62,9 @@ struct BudgetView: View {
 }
 
 struct BudgetCell : View {
-    
+
     @Binding var budgetItem: Budget
-    
+
     var body: some View {
         VStack {
             ZStack {
@@ -78,7 +78,7 @@ struct BudgetCell : View {
             }
             Text(budgetItem.title)
             Text("$\(budgetItem.remainingValue()) left")
-            
+
         }
     }
 }

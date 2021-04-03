@@ -10,32 +10,32 @@ import SwiftUI
 //https://stackoverflow.com/questions/11382753/change-the-ios-keyboard-layout-to-emoji/44753740#44753740
 
 struct AddBudgetView: View {
-    
+
     @Binding var dataModel: BudgetModel
     @Binding var isPresented: Bool
-    
+
     @State var emojiText: String = ""
     @State var titleText: String = ""
     @State var budgetText: String = ""
     @State var selectedType : Int = 0
-    
+
     var body: some View {
         NavigationView {
             VStack { //double V-stack :(
-                
+
                 VStack {
                     Text("New Budget")
                         .font(.title)
                         .padding(.bottom, 20)
                     CategoryButton(emojiText: $emojiText)
-                    
+
                 }
                 .padding(.bottom, 20)
                 .navigationBarTitle("New Budget", displayMode: .inline)
                 .navigationBarHidden(true)
-                
-                
-                
+
+
+
                 TextInput(prompt: "Enter Title", text: $titleText)
                     .padding(.bottom, 20)
                 TextInput(prompt: "Enter Budget", text: $budgetText)
@@ -43,8 +43,8 @@ struct AddBudgetView: View {
                 SegmentedControlInput(prompt: "Choose type", selected: $selectedType)
                     .padding(.bottom, 60)
                 CreateButton(dataModel: $dataModel, emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, isPresented: $isPresented)
-                
-                
+
+
             }
         }
     }
@@ -52,10 +52,10 @@ struct AddBudgetView: View {
 }
 
 struct TextInput: View {
-    
+
     var prompt: String
     @Binding var text: String
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
@@ -71,10 +71,10 @@ struct TextInput: View {
 }
 
 struct CustomTextField : View {
-    
+
     @State private var isEditing = false
     @Binding var text: String
-    
+
     var body: some View {
         VStack {
         TextField(
@@ -87,10 +87,10 @@ struct CustomTextField : View {
 }
 
 struct SegmentedControlInput: View {
-    
+
     var prompt: String
     @Binding var selected: Int
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
@@ -106,12 +106,12 @@ struct SegmentedControlInput: View {
 }
 
 struct CategoryButton: View {
-    
+
     @State var isFirstResponder = false
-    
+
     @Binding var emojiText: String
-    
-    
+
+
     var body: some View {
         Button(action: {
             self.isFirstResponder = true
@@ -134,22 +134,22 @@ struct CategoryButton: View {
         .padding(.bottom, 8)
         Text("+ Add emoji")
     }
-    
+
 }
 
 struct CreateButton : View {
-    
+
     @Binding var dataModel: BudgetModel
-    
+
     @Binding var emojiText: String
     @Binding var titleText: String
     @Binding var budgetText: String
     @Binding var selectedType : Int
-    
+
     @Binding var isPresented: Bool
-    
+
     var body: some View {
-        
+
         Button(action: {
             print("button pressed")
             self.saveBudgetModel()
@@ -166,13 +166,13 @@ struct CreateButton : View {
             }
         }
     }
-    
+
     func saveBudgetModel() {
         var type = "Want"
         if self.selectedType == 0 {
             type = "Need"
         }
-        
+
         if let budgetValue = Int(self.budgetText) {
             let viewModel = Budget(emojiString: self.emojiText, title: self.titleText, budgetedValue: budgetValue, spendType: type)
             self.dataModel.addBudget(budget: viewModel)
