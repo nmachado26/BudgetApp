@@ -22,15 +22,13 @@ struct CalculatorView: View {
             VStack {
                 Spacer()
                 
-                HStack(spacing: 20) {
+                HStack(spacing: 5) {
                     Text("$")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                    Text(code.joined(separator:""))
                         .font(.title)
                         .fontWeight(.semibold)
-                    ForEach(code, id: \.self){ i in
-                        Text(i)
-                            .font(.title)
-                            .fontWeight(.semibold)
-                    }
                 }.padding(.vertical)
                 
                 Spacer()
@@ -59,42 +57,10 @@ struct CalculatorView: View {
                         }
                     }
                     
-                    
-//                    ZStack {
-//                        Rectangle()
-//                            .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                            .foregroundColor(.black)
-//                            .opacity(0.1)
-//                            .cornerRadius(50)
-//                        if self.selectedCategory == "" {
-//                            Image(systemName: "plus")
-//                        }
-//                        else {
-//                            Text(selectedCategory)
-//                        }
-//                    }
                 }).sheet(isPresented: $showingCategoriesList) {
                     CategoriesList(dataModel: $dataModel, selectedCategory: $selectedCategory, isPresented: $showingCategoriesList)
                 }
                 
-                
-//                NavigationLink(destination: CategoriesList(dataModel: self.$dataModel, selectedCategory: $selectedCategory)) {
-//                    ZStack {
-//                        Rectangle()
-//                            .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                            .foregroundColor(.black)
-//                            .opacity(0.1)
-//                            .cornerRadius(50)
-//                        if self.selectedCategory == "" {
-//                            Image(systemName: "plus")
-//                        }
-//                        else {
-//                            Text(selectedCategory)
-//                        }
-//                    }
-//
-//                }
-            
                 Spacer()
                 NumberPad(dataModel: $dataModel, codes: $code, selectedCategory: $selectedCategory)
             }
@@ -107,6 +73,8 @@ struct NumberPad : View {
     @Binding var dataModel: BudgetModel
     @Binding var codes : [String]
     @Binding var selectedCategory : Budget
+    
+    @State private var currentString: String = ""
     
     
     var body : some View {
@@ -123,22 +91,22 @@ struct NumberPad : View {
                             if j.value == "delete.left.fill" {
                                 
                                 self.codes.removeLast()
+                                //currentString = codes.joined(separator:"")
                                 
                             }
                             else if j.value == "checkmark.circle.fill" {
                                 print("done: \(self.getCode())")
                                 
-                                var expenseStr = ""
-                                for num in self.codes {
-                                    expenseStr = expenseStr + num
-                                }
+                                let expenseStr = codes.joined(separator:"")
                                 
                                 dataModel.addExpense(budget: self.selectedCategory, expenseString: expenseStr)
                                 
                                 self.codes.removeAll()
+                                //currentString = ""
                             }
                             else {
                                 self.codes.append(j.value)
+                                //currentString = codes.joined(separator:"")
                             }
                         }) {
                             if j.value == "delete.left.fill" || j.value == "checkmark.circle.fill" {
