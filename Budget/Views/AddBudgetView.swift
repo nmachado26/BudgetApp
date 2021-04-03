@@ -163,7 +163,6 @@ struct CreateButton : View {
     }
     
     func saveBudgetModel() {
-//        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need")
         var type = "Want"
         if self.selectedType == 0 {
             type = "Need"

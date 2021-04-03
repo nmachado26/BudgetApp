@@ -48,7 +48,7 @@ struct BudgetView: View {
                 ScrollView {
                     HStack() {
                         Spacer()
-                        NavigationLink(destination: SecondView()) {
+                        NavigationLink(destination: AddBudgetView()) {
                             Image(systemName: "plus")
                         }
                     }
@@ -68,13 +68,6 @@ struct BudgetView: View {
         }
     }
 }
-
-struct SecondView: View {
-    var body: some View {
-        Text("This is the detail view")
-    }
-}
-
 
 struct BudgetCell : View {
     

@@ -27,6 +27,7 @@
 		27EC5D6B2617B3F700783D20 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D6A2617B3F700783D20 /* ColorModel.swift */; };
 		27EC5D6F2617BD3500783D20 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D6E2617BD3500783D20 /* Budget.swift */; };
 		27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D712617BDEB00783D20 /* RecurringCost.swift */; };
+		27EEB614261839A6007247AB /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEB613261839A6007247AB /* BudgetModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		27EC5D6A2617B3F700783D20 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
 		27EC5D6E2617BD3500783D20 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		27EC5D712617BDEB00783D20 /* RecurringCost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCost.swift; sourceTree = "<group>"; };
+		27EEB613261839A6007247AB /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				27EC5D6A2617B3F700783D20 /* ColorModel.swift */,
 				27EC5D6E2617BD3500783D20 /* Budget.swift */,
 				27EC5D712617BDEB00783D20 /* RecurringCost.swift */,
+				27EEB613261839A6007247AB /* BudgetModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				27EC5D5A2617B2E300783D20 /* Color.swift in Sources */,
 				27EC5D5E2617B32800783D20 /* Home.swift in Sources */,
 				27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */,
+				27EEB614261839A6007247AB /* BudgetModel.swift in Sources */,
 				27EC5D452617B24B00783D20 /* SceneDelegate.swift in Sources */,
 				2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */,
 				27786055261808CC00DF4839 /* String.swift in Sources */,
