@@ -110,8 +110,8 @@ struct CategoryButton: View {
         }) {
             ZStack {
                 //so hacky :(
-                LegacyTextField(text: $text, isFirstResponder: $isFirstResponder)
-                    
+                EmojiTextField(text: $text, isFirstResponder: $isFirstResponder)
+                    .frame(width: 1, height: 1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 Rectangle()
                     .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.black)
