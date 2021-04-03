@@ -31,8 +31,8 @@ struct RecurringView: View {
                     }
                     .padding(.horizontal, 16)
                     Spacer()
-                    ForEach(dataModel.recurringsData) { recurringItem in
-                        RecurringRow(recurringItem: recurringItem)
+                    ForEach(dataModel.recurringsData.indices, id: \.self) { i in
+                        RecurringRow(recurringItem: $dataModel.recurringsData[i])
                             .padding(.vertical, 20)
                     }.padding(.top, 10)
                 }.navigationBarTitle("RecurringNav")
@@ -43,7 +43,7 @@ struct RecurringView: View {
 
 struct RecurringRow : View {
     
-    var recurringItem: RecurringCost
+    @Binding var recurringItem: RecurringCost
     
     var body: some View {
         HStack {
