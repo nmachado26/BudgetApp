@@ -12,14 +12,15 @@ import SwiftUI
 struct CategoriesList: View {
     
     @Binding var dataModel: BudgetModel
-    @Binding var selectedCategory: String
+    @Binding var selectedCategory: Budget
+    @Binding var isPresented: Bool
     
     //replaced by dataModel.budgetsData
-//    var budgetsData = [
-//        Budget(emojiString: "🍔", title: "Food", budgetedValue: 300, spendType: "Need"),
-//        Budget(emojiString: "☕️", title: "Coffee", budgetedValue: 80, spendType: "Want"),
-//        Budget(emojiString: "💗", title: "Dates", budgetedValue: 200, spendType: "Want"),
-//    ]
+    //    var budgetsData = [
+    //        Budget(emojiString: "🍔", title: "Food", budgetedValue: 300, spendType: "Need"),
+    //        Budget(emojiString: "☕️", title: "Coffee", budgetedValue: 80, spendType: "Want"),
+    //        Budget(emojiString: "💗", title: "Dates", budgetedValue: 200, spendType: "Want"),
+    //    ]
     
     let columns = [
         GridItem(.flexible()),
@@ -32,7 +33,7 @@ struct CategoriesList: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(self.dataModel.budgetsData, id: \.self) { budgetItem in
-                        CategoryCell(budgetItem: budgetItem, selectedCategory: $selectedCategory)
+                        CategoryCell(budgetItem: budgetItem, selectedCategory: $selectedCategory, isPresented: $isPresented)
                     }
                 }
                 .padding(.horizontal, 0)
@@ -47,25 +48,29 @@ struct CategoriesList: View {
 struct CategoryCell : View {
     
     var budgetItem: Budget
-    @Binding var selectedCategory: String
+    @Binding var selectedCategory: Budget
+    @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
             
             
             Button(action: {
-                self.selectedCategory = budgetItem.emojiString
+                self.selectedCategory = budgetItem
+                isPresented = false
             }) {
-                ZStack {
-                    Rectangle()
-                        .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.black)
-                        .opacity(0.1)
-                        .cornerRadius(15)
-                    Text(budgetItem.emojiString)
-                        .font(.title)
+                VStack {
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.black)
+                            .opacity(0.1)
+                            .cornerRadius(15)
+                        Text(budgetItem.emojiString)
+                            .font(.title)
+                    }
+                    Text(budgetItem.title)
                 }
-                Text(budgetItem.title)
             }
             
         }

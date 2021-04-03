@@ -12,7 +12,8 @@ struct Home: View {
     
     @Binding var dataModel: BudgetModel
     
-    @State var selectedCategory : String = ""
+    @State var selectedCategory : Budget = Budget(emojiString: "", title: "", budgetedValue: 0, spendType: "")
+    @State private var showingCategoriesList = false
     
     @State var code: [String] = []
     
@@ -34,22 +35,65 @@ struct Home: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: CategoriesList(dataModel: self.$dataModel, selectedCategory: $selectedCategory)) {
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(.black)
-                            .opacity(0.1)
-                            .cornerRadius(50)
-                        if self.selectedCategory == "" {
-                            Image(systemName: "plus")
+                
+                Button(action: {
+                    self.showingCategoriesList = true
+                }, label: {
+                    
+                    VStack {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .foregroundColor(.black)
+                                .opacity(0.1)
+                                .cornerRadius(15)
+                            if self.selectedCategory.emojiString == "" {
+                                Image(systemName: "plus")
+                            }
+                            else {
+                                Text(selectedCategory.emojiString)
+                            }
                         }
-                        else {
-                            Text(selectedCategory)
+                        if self.selectedCategory.title != "" {
+                            Text(selectedCategory.title)
                         }
                     }
-
+                    
+                    
+//                    ZStack {
+//                        Rectangle()
+//                            .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                            .foregroundColor(.black)
+//                            .opacity(0.1)
+//                            .cornerRadius(50)
+//                        if self.selectedCategory == "" {
+//                            Image(systemName: "plus")
+//                        }
+//                        else {
+//                            Text(selectedCategory)
+//                        }
+//                    }
+                }).sheet(isPresented: $showingCategoriesList) {
+                    CategoriesList(dataModel: $dataModel, selectedCategory: $selectedCategory, isPresented: $showingCategoriesList)
                 }
+                
+                
+//                NavigationLink(destination: CategoriesList(dataModel: self.$dataModel, selectedCategory: $selectedCategory)) {
+//                    ZStack {
+//                        Rectangle()
+//                            .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                            .foregroundColor(.black)
+//                            .opacity(0.1)
+//                            .cornerRadius(50)
+//                        if self.selectedCategory == "" {
+//                            Image(systemName: "plus")
+//                        }
+//                        else {
+//                            Text(selectedCategory)
+//                        }
+//                    }
+//
+//                }
             
                 Spacer()
                 NumberPad(codes: $code)
