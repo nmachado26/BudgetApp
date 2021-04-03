@@ -11,8 +11,10 @@ import SwiftUI
 
 struct AddBudgetView: View {
     
-    @State var text1: String = ""
-    @State var text2: String = ""
+    @State var emojiText: String = ""
+    @State var titleText: String = ""
+    @State var budgetText: String = ""
+    @State var selectedType : Int = 0
     
     var body: some View {
         NavigationView {
@@ -22,7 +24,7 @@ struct AddBudgetView: View {
                     Text("New Budget")
                         .font(.title)
                         .padding(.bottom, 20)
-                    CategoryButton()
+                    CategoryButton(emojiText: $emojiText)
                     
                 }
                 .padding(.bottom, 20)
@@ -31,17 +33,21 @@ struct AddBudgetView: View {
                 
                 
                 
-                TextInput(prompt: "Enter Title", text: $text1)
+                TextInput(prompt: "Enter Title", text: $titleText)
                     .padding(.bottom, 20)
-                TextInput(prompt: "Enter Budget", text: $text2)
+                TextInput(prompt: "Enter Budget", text: $budgetText)
                     .padding(.bottom, 20)
-                SegmentedControlInput(prompt: "Choose type")
+                SegmentedControlInput(prompt: "Choose type", selected: $selectedType)
                     .padding(.bottom, 60)
-                CreateButton()
+                CreateButton(emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType)
                 
                 
             }
         }
+    }
+    
+    func saveModel() {
+        print("pls")
     }
 }
 
@@ -82,11 +88,9 @@ struct CustomTextField : View {
 
 struct SegmentedControlInput: View {
     
-    @State var selected = 0 //changing each time selected
-    @State private var favoriteColor = "Red"
-    var colors = ["Red", "Green", "Blue"]
-    
     var prompt: String
+    @Binding var selected: Int
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
@@ -103,8 +107,10 @@ struct SegmentedControlInput: View {
 
 struct CategoryButton: View {
     
-    @State var text = ""
     @State var isFirstResponder = false
+    
+    @Binding var emojiText: String
+    
     
     var body: some View {
         Button(action: {
@@ -113,14 +119,14 @@ struct CategoryButton: View {
         }) {
             ZStack {
                 //so hacky :(
-                EmojiTextField(text: $text, isFirstResponder: $isFirstResponder)
+                EmojiTextField(text: $emojiText, isFirstResponder: $isFirstResponder)
                     .frame(width: 1, height: 1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 Rectangle()
                     .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.black)
                     .opacity(0.1)
                     .cornerRadius(15)
-                Text("💗")
+                Text(self.emojiText)
                     .font(.title)
                 //Image(systemName: "face.smiling")
             }
@@ -128,13 +134,21 @@ struct CategoryButton: View {
         .padding(.bottom, 8)
         Text("+ Add emoji")
     }
+    
 }
 
 struct CreateButton : View {
+    
+    @Binding var emojiText: String
+    @Binding var titleText: String
+    @Binding var budgetText: String
+    @Binding var selectedType : Int
+    
     var body: some View {
         
         Button(action: {
             print("button pressed")
+            self.saveBudgetModel()
         }) {
             ZStack {
                 Rectangle()
@@ -145,6 +159,22 @@ struct CreateButton : View {
                     .font(.headline)
                     .foregroundColor(.white)
             }
+        }
+    }
+    
+    func saveBudgetModel() {
+//        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need")
+        var type = "Want"
+        if self.selectedType == 0 {
+            type = "Need"
+        }
+        
+        if let budgetValue = Int(self.budgetText) {
+            var viewModel = Budget(emojiString: self.emojiText, title: self.titleText, budgetedValue: budgetValue, spendType: type)
+            print(viewModel)
+        }
+        else {
+            print("ERROR saveBudgetModel budgetValue can't be converted to Int")
         }
     }
 }
