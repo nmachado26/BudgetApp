@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            Home(dataModel: self.$dataModel).tabItem {
+            CalculatorView(dataModel: self.$dataModel).tabItem {
                 selection == 0 ? Image(systemName: "house.fill") : Image(systemName: "house")
                 Text("Home")
             }.tag(0)

@@ -1,5 +1,5 @@
 //
-//  Home.swift
+//  Calculator.swift
 //  Budget
 //
 //  Created by Nicolas Machado on 4/2/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 //calculator code from https://kavsoft.dev/Swift/Custom%20NumberPad/
-struct Home: View {
+struct CalculatorView: View {
     
     @Binding var dataModel: BudgetModel
     
@@ -191,8 +191,4 @@ var datas = [
     
 ]
 
-//struct Home_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Home()
-//    }
-//}
+

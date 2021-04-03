@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		270D765C261925A10085EFC1 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D765B261925A10085EFC1 /* RefreshView.swift */; };
 		270D7661261927B80085EFC1 /* RecurringsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D7660261927B80085EFC1 /* RecurringsView.swift */; };
+		270D76652619299B0085EFC1 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D76642619299B0085EFC1 /* CalculatorView.swift */; };
 		277860522618087200DF4839 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277860512618087200DF4839 /* EmojiPicker.swift */; };
 		27786055261808CC00DF4839 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27786054261808CC00DF4839 /* String.swift */; };
 		2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778605B26181B5800DF4839 /* EmojiTextField.swift */; };
@@ -23,7 +23,6 @@
 		27EC5D4C2617B24C00783D20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27EC5D4B2617B24C00783D20 /* Preview Assets.xcassets */; };
 		27EC5D4F2617B24C00783D20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EC5D4D2617B24C00783D20 /* LaunchScreen.storyboard */; };
 		27EC5D5A2617B2E300783D20 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D592617B2E300783D20 /* Color.swift */; };
-		27EC5D5E2617B32800783D20 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D5D2617B32800783D20 /* Home.swift */; };
 		27EC5D612617B33200783D20 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D602617B33200783D20 /* BudgetView.swift */; };
 		27EC5D642617B33D00783D20 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D632617B33D00783D20 /* OverviewView.swift */; };
 		27EC5D6B2617B3F700783D20 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D6A2617B3F700783D20 /* ColorModel.swift */; };
@@ -37,8 +36,8 @@
 
 /* Begin PBXFileReference section */
 		205783F3736792D194D65C9A /* Pods_Budget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		270D765B261925A10085EFC1 /* RefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
 		270D7660261927B80085EFC1 /* RecurringsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringsView.swift; sourceTree = "<group>"; };
+		270D76642619299B0085EFC1 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		277860512618087200DF4839 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		27786054261808CC00DF4839 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2778605B26181B5800DF4839 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
@@ -55,7 +54,6 @@
 		27EC5D4E2617B24C00783D20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27EC5D502617B24C00783D20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27EC5D592617B2E300783D20 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		27EC5D5D2617B32800783D20 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		27EC5D602617B33200783D20 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
 		27EC5D632617B33D00783D20 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		27EC5D6A2617B3F700783D20 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
@@ -138,14 +136,13 @@
 			isa = PBXGroup;
 			children = (
 				27E9A6FB2617D7710080EE6F /* ExtraViews */,
-				27EC5D5D2617B32800783D20 /* Home.swift */,
 				27EC5D602617B33200783D20 /* BudgetView.swift */,
 				27EC5D632617B33D00783D20 /* OverviewView.swift */,
 				27E9A6F42617C9640080EE6F /* AddBudgetView.swift */,
 				27EEB61626183F50007247AB /* CategoriesList.swift */,
 				27FC268C26191589004247E2 /* AddRecurringCostView.swift */,
-				270D765B261925A10085EFC1 /* RefreshView.swift */,
 				270D7660261927B80085EFC1 /* RecurringsView.swift */,
+				270D76642619299B0085EFC1 /* CalculatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,17 +302,16 @@
 				27EC5D432617B24B00783D20 /* AppDelegate.swift in Sources */,
 				27E9A6FD2617D77D0080EE6F /* SegmentedControlView.swift in Sources */,
 				270D7661261927B80085EFC1 /* RecurringsView.swift in Sources */,
+				270D76652619299B0085EFC1 /* CalculatorView.swift in Sources */,
 				2778606226181E1C00DF4839 /* CustomButton.swift in Sources */,
 				27EC5D612617B33200783D20 /* BudgetView.swift in Sources */,
 				27EC5D6F2617BD3500783D20 /* Budget.swift in Sources */,
 				27EC5D6B2617B3F700783D20 /* ColorModel.swift in Sources */,
-				270D765C261925A10085EFC1 /* RefreshView.swift in Sources */,
 				277860522618087200DF4839 /* EmojiPicker.swift in Sources */,
 				27EEB61726183F50007247AB /* CategoriesList.swift in Sources */,
 				27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */,
 				27FC268D26191589004247E2 /* AddRecurringCostView.swift in Sources */,
 				27EC5D5A2617B2E300783D20 /* Color.swift in Sources */,
-				27EC5D5E2617B32800783D20 /* Home.swift in Sources */,
 				27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */,
 				277A7E862618F8DC0062E5B5 /* RealmExtensions.swift in Sources */,
 				27EEB614261839A6007247AB /* BudgetModel.swift in Sources */,
