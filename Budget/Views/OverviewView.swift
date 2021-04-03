@@ -32,11 +32,9 @@ struct StatusView: View {
     }
 }
 
-let sample = [ ChartCellModel(color: Color.red, value: 123, name: "Math"),
-               ChartCellModel(color: Color.yellow, value: 233, name: "Physics"),
-               ChartCellModel(color: Color.pink, value: 73, name: "Chemistry"),
-               ChartCellModel(color: Color.blue, value: 731, name: "Litrature"),
-               ChartCellModel(color: Color.green, value: 51, name: "Art")]
+let sample = [ ChartCellModel(color: Color.red, value: 2000, name: "Wants"),
+               ChartCellModel(color: Color.yellow, value: 3000, name: "Needs"),
+               ChartCellModel(color: Color.gray, value: 1000, name: "Saved"),]
 
 struct MonthlyView : View {
     
@@ -50,7 +48,7 @@ struct MonthlyView : View {
                     DonutChart(dataModel: ChartDataModel.init(dataModel: sample), onTap: {
                         dataModel in
                         if let dataModel = dataModel {
-                            self.selectedDonut = "Subject: \(dataModel.name)\nPointes: \(dataModel.value)"
+                            self.selectedDonut = "Spending Type: \(dataModel.name)\nAmount: \(dataModel.value)"
                         } else {
                             self.selectedDonut = ""
                         }
@@ -63,13 +61,19 @@ struct MonthlyView : View {
                     Spacer()
                 }
                 Spacer()
-                HStack {
+                VStack {
                     ForEach(sample) { dataSet in
-                        VStack {
-                            Circle().foregroundColor(dataSet.color)
-                            Text(dataSet.name).font(.footnote)
+                        HStack {
+                            Rectangle()
+                                .frame(width: 6, height: 20)
+                                .cornerRadius(10) //overdone
+                                .foregroundColor(dataSet.color)
+                            Text(dataSet.name).font(.body)
+                            Spacer()
+                            Text("$\(dataSet.value)")
                         }
                     }
+                    .padding(.horizontal, 24)
                 }
                 
             }
