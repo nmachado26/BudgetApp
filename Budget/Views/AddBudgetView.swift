@@ -11,6 +11,9 @@ import SwiftUI
 
 struct AddBudgetView: View {
     
+    @State var text1: String = ""
+    @State var text2: String = ""
+    
     var body: some View {
         NavigationView {
             VStack { //double V-stack :(
@@ -28,9 +31,9 @@ struct AddBudgetView: View {
                 
                 
                 
-                TextInput(prompt: "Enter Title")
+                TextInput(prompt: "Enter Title", text: $text1)
                     .padding(.bottom, 20)
-                TextInput(prompt: "Enter Budget")
+                TextInput(prompt: "Enter Budget", text: $text2)
                     .padding(.bottom, 20)
                 SegmentedControlInput(prompt: "Choose type")
                     .padding(.bottom, 60)
@@ -45,13 +48,13 @@ struct AddBudgetView: View {
 struct TextInput: View {
     
     var prompt: String
-    @State private var givenName: String = ""
+    @Binding var text: String
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
                 .padding(.bottom, 10)
-            CustomTextField()
+            CustomTextField(text: $text)
                 .padding(.bottom, 5)
             Rectangle()
                 .frame(height:1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -62,18 +65,18 @@ struct TextInput: View {
 }
 
 struct CustomTextField : View {
-    @State private var username: String = ""
-    @State private var isEditing = false
     
-    @State private var givenName: String = ""
-    @State private var familyName: String = ""
+    @State private var isEditing = false
+    @Binding var text: String
     
     var body: some View {
+        VStack {
         TextField(
             "",
-            text: $givenName)
+            text: $text)
             .disableAutocorrection(true)
             .textFieldStyle(PlainTextFieldStyle())
+        }
     }
 }
 
