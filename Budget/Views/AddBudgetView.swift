@@ -11,6 +11,8 @@ import SwiftUI
 
 struct AddBudgetView: View {
     
+    @Binding var dataModel: BudgetModel
+    
     @State var emojiText: String = ""
     @State var titleText: String = ""
     @State var budgetText: String = ""
@@ -39,7 +41,7 @@ struct AddBudgetView: View {
                     .padding(.bottom, 20)
                 SegmentedControlInput(prompt: "Choose type", selected: $selectedType)
                     .padding(.bottom, 60)
-                CreateButton(emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType)
+                CreateButton(dataModel: $dataModel, emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType)
                 
                 
             }
@@ -139,6 +141,8 @@ struct CategoryButton: View {
 
 struct CreateButton : View {
     
+    @Binding var dataModel: BudgetModel
+    
     @Binding var emojiText: String
     @Binding var titleText: String
     @Binding var budgetText: String
@@ -169,7 +173,8 @@ struct CreateButton : View {
         }
         
         if let budgetValue = Int(self.budgetText) {
-            var viewModel = Budget(emojiString: self.emojiText, title: self.titleText, budgetedValue: budgetValue, spendType: type)
+            let viewModel = Budget(emojiString: self.emojiText, title: self.titleText, budgetedValue: budgetValue, spendType: type)
+            self.dataModel.addBudget(budget: viewModel)
             print(viewModel)
         }
         else {
@@ -179,8 +184,8 @@ struct CreateButton : View {
 }
 
 
-struct AddBudgetView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddBudgetView()
-    }
-}
+//struct AddBudgetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddBudgetView()
+//    }
+//}

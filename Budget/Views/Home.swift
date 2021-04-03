@@ -10,25 +10,43 @@ import SwiftUI
 //calculator code from https://kavsoft.dev/Swift/Custom%20NumberPad/
 struct Home: View {
     
+    @Binding var dataModel: BudgetModel
+    
     @State var code: [String] = []
     
     var body: some View {
-        VStack {
-            Spacer()
-
-            HStack(spacing: 20) {
-                Text("$")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                ForEach(code, id: \.self){ i in
-                    Text(i)
+        NavigationView {
+            VStack {
+                Spacer()
+                
+                HStack(spacing: 20) {
+                    Text("$")
                         .font(.title)
                         .fontWeight(.semibold)
+                    ForEach(code, id: \.self){ i in
+                        Text(i)
+                            .font(.title)
+                            .fontWeight(.semibold)
+                    }
+                }.padding(.vertical)
+                
+                Spacer()
+                
+                NavigationLink(destination: CategoriesList(dataModel: self.$dataModel)) {
+                    ZStack {
+                        Rectangle()
+                            .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(.black)
+                            .opacity(0.1)
+                            .cornerRadius(50)
+                        Image(systemName: "plus")
+                    }
+
                 }
-            }.padding(.vertical)
             
-            Spacer()
-            NumberPad(codes: $code)
+                Spacer()
+                NumberPad(codes: $code)
+            }
         }
     }
 }
@@ -91,12 +109,6 @@ struct NumberPad : View {
     }
 }
 
-struct Home_Previews: PreviewProvider {
-    static var previews: some View {
-        Home()
-    }
-}
-
 struct type: Identifiable {
     
     var id: Int
@@ -116,3 +128,9 @@ var datas = [
     type(id: 3, row: [row(id: 0, value: "delete.left.fill"), row(id: 1, value: "0"), row(id: 2, value: "checkmark.circle.fill")])
     
 ]
+
+//struct Home_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Home()
+//    }
+//}

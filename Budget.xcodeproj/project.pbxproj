@@ -28,6 +28,7 @@
 		27EC5D6F2617BD3500783D20 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D6E2617BD3500783D20 /* Budget.swift */; };
 		27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D712617BDEB00783D20 /* RecurringCost.swift */; };
 		27EEB614261839A6007247AB /* BudgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEB613261839A6007247AB /* BudgetModel.swift */; };
+		27EEB61726183F50007247AB /* CategoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EEB61626183F50007247AB /* CategoriesList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		27EC5D6E2617BD3500783D20 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		27EC5D712617BDEB00783D20 /* RecurringCost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurringCost.swift; sourceTree = "<group>"; };
 		27EEB613261839A6007247AB /* BudgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetModel.swift; sourceTree = "<group>"; };
+		27EEB61626183F50007247AB /* CategoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				27EC5D632617B33D00783D20 /* OverviewView.swift */,
 				27EC5D662617B34600783D20 /* RecurringView.swift */,
 				27E9A6F42617C9640080EE6F /* AddBudgetView.swift */,
+				27EEB61626183F50007247AB /* CategoriesList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				27EC5D6B2617B3F700783D20 /* ColorModel.swift in Sources */,
 				27EC5D672617B34600783D20 /* RecurringView.swift in Sources */,
 				277860522618087200DF4839 /* EmojiPicker.swift in Sources */,
+				27EEB61726183F50007247AB /* CategoriesList.swift in Sources */,
 				27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */,
 				27EC5D5A2617B2E300783D20 /* Color.swift in Sources */,
 				27EC5D5E2617B32800783D20 /* Home.swift in Sources */,

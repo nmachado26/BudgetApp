@@ -16,23 +16,7 @@ import SwiftUI
 
 struct BudgetView: View {
     
-    let budgets = [
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need"),
-        Budget(emojiString: "🚀", title: "Food", budgetedValue: 120, spendType: "Need")
-    ]
+    @Binding var dataModel: BudgetModel
     
     let columns = [
         GridItem(.flexible()),
@@ -48,14 +32,14 @@ struct BudgetView: View {
                 ScrollView {
                     HStack() {
                         Spacer()
-                        NavigationLink(destination: AddBudgetView()) {
+                        NavigationLink(destination: AddBudgetView(dataModel: self.$dataModel)) {
                             Image(systemName: "plus")
                         }
                     }
                     .padding(.horizontal, 16)
                     
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(budgets, id: \.self) { budgetItem in
+                        ForEach(dataModel.budgetsData, id: \.self) { budgetItem in
                             BudgetCell(budgetItem: budgetItem)
                         }
                     }
@@ -91,8 +75,8 @@ struct BudgetCell : View {
     }
 }
 
-struct BudgetView_Previews: PreviewProvider {
-    static var previews: some View {
-        BudgetView()
-    }
-}
+//struct BudgetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BudgetView(dataModel: model)
+//    }
+//}

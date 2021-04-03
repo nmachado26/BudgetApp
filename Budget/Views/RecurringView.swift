@@ -9,11 +9,7 @@ import SwiftUI
 
 struct RecurringView: View {
     
-    let recurringCosts = [
-        RecurringCost(emojiString: "😂", title: "Food", value: 120, frequency: "Weekly"),
-        RecurringCost(emojiString: "✅", title: "Check", value: 120, frequency: "Monthly"),
-        RecurringCost(emojiString: "🚀", title: "Rocket", value: 10, frequency: "Monthly")
-    ]
+    @Binding var dataModel: BudgetModel
     
     var body: some View {
         VStack(alignment: .leading){
@@ -21,7 +17,7 @@ struct RecurringView: View {
             Text("Recurring")
                 .font(.title)
                 .padding(.leading, 16)
-            List(recurringCosts) { recurringItem in
+            List(dataModel.recurringsData) { recurringItem in
                 RecurringRow(recurringItem: recurringItem)
                     .padding(.vertical, 20)
             }.padding(.top, 10)
@@ -51,8 +47,8 @@ struct RecurringRow : View {
     }
 }
 
-struct RecurringView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecurringView()
-    }
-}
+//struct RecurringView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecurringView()
+//    }
+//}
