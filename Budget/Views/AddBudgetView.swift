@@ -176,9 +176,9 @@ struct CreateButton : View {
     }
 
     func saveBudgetModel() {
-        var type = "Want"
+        var type = "want"
         if self.selectedType == 0 {
-            type = "Need"
+            type = "need"
         }
 
         if let budgetValue = Int(self.budgetText) {
@@ -192,9 +192,9 @@ struct CreateButton : View {
     }
     
     func saveRecurringCostModel() {
-        var type = "Want"
+        var type = "want"
         if self.selectedType == 0 {
-            type = "Need"
+            type = "need"
         }
         if let budgetValue = Int(self.budgetText) {
             let viewModel = RecurringCost(emojiString: self.emojiText, title: self.titleText, value: budgetValue, spendType: type)
