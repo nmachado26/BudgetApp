@@ -69,6 +69,8 @@ struct TextInput: View {
                 .foregroundColor(mediumGrayColor)
                 .padding(.bottom, 10)
             CustomTextField(text: $text)
+                .font(medium14Font)
+                .foregroundColor(.black)
                 .padding(.bottom, 5)
             Rectangle()
                 .frame(height:1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
