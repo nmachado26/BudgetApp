@@ -71,11 +71,13 @@ struct RecurringCell : View {
                     .foregroundColor(cellBackgroundColor)
                     .cornerRadius(15)
                 Text(recurringItem.emojiString)
-                    .font(.title)
+                    .font(emojiFont)
             }
             Text(recurringItem.title)
+                .font(bold18Font)
             Spacer()
             Text("$\(recurringItem.monthlyCost) / mo ")
+                .font(medium14Font)
         }.padding(.horizontal, 0)
     }
 }

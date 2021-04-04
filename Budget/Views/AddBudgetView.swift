@@ -27,7 +27,7 @@ struct AddBudgetView: View {
 
                 VStack {
                     Text("New Budget")
-                        .font(.title)
+                        .font(bold22Font)
                         .padding(.bottom, 20)
                     CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
 
@@ -65,6 +65,8 @@ struct TextInput: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
+                .font(medium14Font)
+                .foregroundColor(mediumGrayColor)
                 .padding(.bottom, 10)
             CustomTextField(text: $text)
                 .padding(.bottom, 5)
@@ -100,6 +102,8 @@ struct SegmentedControlInput: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
+                .font(medium14Font)
+                .foregroundColor(mediumGrayColor)
                 .padding(.bottom, 20)
             SegmentedControlView(selected: self.$selected, segments: [Segment(id: 0, segmentName: "Need"), Segment(id: 1, segmentName: "Want")])
                 .padding(.bottom, 15)
@@ -134,7 +138,7 @@ struct CategoryButton: View {
                     .cornerRadius(15)
                 if emojiChosen {
                     Text(emojiText)
-                        .font(.title)
+                        .font(emojiFont)
                 }
                 //can do opacity change or hidden flag instead with binding value
                 if emojiChosen {
@@ -147,6 +151,7 @@ struct CategoryButton: View {
         .padding(.bottom, 8)
         if !emojiChosen {
             Text("+ Add emoji")
+                .font(medium14Font)
                 .foregroundColor(mediumGrayColor)
         }
     }
@@ -187,7 +192,7 @@ struct CreateButton : View {
                     .foregroundColor(.black)
                     .cornerRadius(15)
                 Text("Create")
-                    .font(.headline)
+                    .font(bold16Font)
                     .foregroundColor(.white)
             }
         }

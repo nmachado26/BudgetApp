@@ -27,11 +27,9 @@ struct CalculatorView: View {
                 
                 HStack(spacing: 5) {
                     Text("$")
-                        .font(.body)
-                        .fontWeight(.semibold)
+                        .font(bold80Font)
                     Text(code.joined(separator:""))
-                        .font(.title)
-                        .fontWeight(.semibold)
+                        .font(bold80Font)
                 }.padding(.vertical)
                 
                 Spacer()
@@ -50,6 +48,7 @@ struct CalculatorView: View {
                                 .cornerRadius(15)
                             if self.categoryChosen {
                                 Text(selectedCategory.emojiString)
+                                    .font(emojiFont)
                             }
                             else {
                                 Image(systemName: "plus")
@@ -62,6 +61,7 @@ struct CalculatorView: View {
                         }
                         if categoryChosen {
                             Text(selectedCategory.title)
+                                .font(medium14Font)
                                 .foregroundColor(mediumGrayColor)
                         }
                     }
@@ -135,8 +135,7 @@ struct NumberPad : View {
                             }
                             else {
                                 Text(j.value)
-                                    .font(.title)
-                                    .fontWeight(.semibold)
+                                    .font(bold28Font)
                                     .padding(.vertical)
                             }
                         }

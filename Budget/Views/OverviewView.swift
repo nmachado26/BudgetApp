@@ -42,16 +42,13 @@ struct StatusView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Status")
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(bold18Font)
                 .padding(.bottom, 8)
             HStack(spacing:5) {
                 Text("$\(dataModel.getTotalBudget() - dataModel.getTotalSpent())")
-                    .font(.title2)
-                    .fontWeight(.semibold)
+                    .font(bold22Font)
                 Text("left to spend")
-                    .font(.title3)
-                    .fontWeight(.semibold)
+                    .font(bold22Font)
             }
             ProgressBar(value: dataModel.getPercentSpent())
                 .cornerRadius(10)
@@ -62,18 +59,22 @@ struct StatusView: View {
                     .frame(width: 6, height: 20)
                     .cornerRadius(10) //overdone
                     .foregroundColor(.black)
-                Text("Spent").font(.body)
+                Text("Spent")
+                    .font(bold16Font)
                 Spacer()
                 Text("$\(dataModel.getTotalSpent())")
+                    .font(bold14Font)
             }
             HStack {
                 Rectangle()
                     .frame(width: 6, height: 20)
                     .cornerRadius(10) //overdone
                     .foregroundColor(unfilledChartColor)
-                Text("Budget").font(.body)
+                Text("Budget")
+                    .font(bold16Font)
                 Spacer()
                 Text("$\(dataModel.getTotalBudget())")
+                    .font(bold14Font)
             }
             
         }
@@ -94,8 +95,7 @@ struct MonthlyView : View {
         
         VStack(alignment: .leading) {
             Text("January Outlook")
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(bold18Font)
                 .padding(.top, 16)
                 .padding(.bottom, 16)
             
@@ -112,11 +112,9 @@ struct MonthlyView : View {
                 .padding()
                 VStack {
                     Text("This month")
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(bold14Font)
                     Text("$\(dataModel.getTotalSpent())")
-                        .font(.body)
-                        .fontWeight(.semibold)
+                        .font(bold18Font)
                 }
             }
             Spacer()
@@ -127,9 +125,12 @@ struct MonthlyView : View {
                             .frame(width: 6, height: 20)
                             .cornerRadius(10) //overdone
                             .foregroundColor(dataSet.color)
-                        Text(dataSet.name).font(.body)
+                        Text(dataSet.name)
+                            .font(bold16Font)
+                        
                         Spacer()
                         Text("$\(Int(dataSet.value))")
+                            .font(bold14Font)
                     }
                 }
                 .padding(.horizontal, 24)

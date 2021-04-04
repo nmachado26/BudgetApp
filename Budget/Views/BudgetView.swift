@@ -75,11 +75,13 @@ struct BudgetCell : View {
                         .foregroundColor(cellBackgroundColor)
                         .cornerRadius(15)
                     Text(budgetItem.emojiString)
-                        .font(.title)
+                        .font(emojiFont)
                 }
             }
             Text(budgetItem.title)
+                .font(bold14Font)
             Text("$\(budgetItem.remainingValue()) left")
+                .font(medium13Font)
             
         }
     }

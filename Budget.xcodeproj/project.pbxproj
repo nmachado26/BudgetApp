@@ -18,6 +18,20 @@
 		2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778605B26181B5800DF4839 /* EmojiTextField.swift */; };
 		2778606226181E1C00DF4839 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778606126181E1C00DF4839 /* CustomButton.swift */; };
 		277A7E862618F8DC0062E5B5 /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277A7E852618F8DC0062E5B5 /* RealmExtensions.swift */; };
+		27BD6589261A7BB200F5E7A7 /* FivoSans-Light-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD657B261A7BB200F5E7A7 /* FivoSans-Light-Oblique.otf */; };
+		27BD658A261A7BB200F5E7A7 /* FivoSans-Bold-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD657C261A7BB200F5E7A7 /* FivoSans-Bold-Oblique.otf */; };
+		27BD658B261A7BB200F5E7A7 /* FivoSans-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD657D261A7BB200F5E7A7 /* FivoSans-Black.otf */; };
+		27BD658C261A7BB200F5E7A7 /* FivoSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD657E261A7BB200F5E7A7 /* FivoSans-Bold.otf */; };
+		27BD658D261A7BB200F5E7A7 /* FivoSans-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD657F261A7BB200F5E7A7 /* FivoSans-Thin.otf */; };
+		27BD658E261A7BB200F5E7A7 /* FivoSans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6580261A7BB200F5E7A7 /* FivoSans-Medium.otf */; };
+		27BD658F261A7BB200F5E7A7 /* FivoSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6581261A7BB200F5E7A7 /* FivoSans-Light.otf */; };
+		27BD6590261A7BB200F5E7A7 /* FivoSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6582261A7BB200F5E7A7 /* FivoSans-Regular.otf */; };
+		27BD6591261A7BB200F5E7A7 /* FivoSans-Medium-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6583261A7BB200F5E7A7 /* FivoSans-Medium-Oblique.otf */; };
+		27BD6592261A7BB200F5E7A7 /* FivoSans-Black-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6584261A7BB200F5E7A7 /* FivoSans-Black-Oblique.otf */; };
+		27BD6593261A7BB200F5E7A7 /* FivoSans-Heavy-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6585261A7BB200F5E7A7 /* FivoSans-Heavy-Oblique.otf */; };
+		27BD6594261A7BB200F5E7A7 /* FivoSans-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6586261A7BB200F5E7A7 /* FivoSans-Heavy.otf */; };
+		27BD6595261A7BB200F5E7A7 /* FivoSans-Thin-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6587261A7BB200F5E7A7 /* FivoSans-Thin-Oblique.otf */; };
+		27BD6596261A7BB200F5E7A7 /* FivoSans-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6588261A7BB200F5E7A7 /* FivoSans-Oblique.otf */; };
 		27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6F42617C9640080EE6F /* AddBudgetView.swift */; };
 		27E9A6FD2617D77D0080EE6F /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */; };
 		27EC5D432617B24B00783D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D422617B24B00783D20 /* AppDelegate.swift */; };
@@ -51,6 +65,20 @@
 		2778605B26181B5800DF4839 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
 		2778606126181E1C00DF4839 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		277A7E852618F8DC0062E5B5 /* RealmExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtensions.swift; sourceTree = "<group>"; };
+		27BD657B261A7BB200F5E7A7 /* FivoSans-Light-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Light-Oblique.otf"; sourceTree = "<group>"; };
+		27BD657C261A7BB200F5E7A7 /* FivoSans-Bold-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Bold-Oblique.otf"; sourceTree = "<group>"; };
+		27BD657D261A7BB200F5E7A7 /* FivoSans-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Black.otf"; sourceTree = "<group>"; };
+		27BD657E261A7BB200F5E7A7 /* FivoSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Bold.otf"; sourceTree = "<group>"; };
+		27BD657F261A7BB200F5E7A7 /* FivoSans-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Thin.otf"; sourceTree = "<group>"; };
+		27BD6580261A7BB200F5E7A7 /* FivoSans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Medium.otf"; sourceTree = "<group>"; };
+		27BD6581261A7BB200F5E7A7 /* FivoSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Light.otf"; sourceTree = "<group>"; };
+		27BD6582261A7BB200F5E7A7 /* FivoSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Regular.otf"; sourceTree = "<group>"; };
+		27BD6583261A7BB200F5E7A7 /* FivoSans-Medium-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Medium-Oblique.otf"; sourceTree = "<group>"; };
+		27BD6584261A7BB200F5E7A7 /* FivoSans-Black-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Black-Oblique.otf"; sourceTree = "<group>"; };
+		27BD6585261A7BB200F5E7A7 /* FivoSans-Heavy-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Heavy-Oblique.otf"; sourceTree = "<group>"; };
+		27BD6586261A7BB200F5E7A7 /* FivoSans-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Heavy.otf"; sourceTree = "<group>"; };
+		27BD6587261A7BB200F5E7A7 /* FivoSans-Thin-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Thin-Oblique.otf"; sourceTree = "<group>"; };
+		27BD6588261A7BB200F5E7A7 /* FivoSans-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Oblique.otf"; sourceTree = "<group>"; };
 		27E9A6F42617C9640080EE6F /* AddBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetView.swift; sourceTree = "<group>"; };
 		27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		27EC5D3F2617B24B00783D20 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +114,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27BD657A261A7B9F00F5E7A7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				27BD6584261A7BB200F5E7A7 /* FivoSans-Black-Oblique.otf */,
+				27BD657D261A7BB200F5E7A7 /* FivoSans-Black.otf */,
+				27BD657C261A7BB200F5E7A7 /* FivoSans-Bold-Oblique.otf */,
+				27BD657E261A7BB200F5E7A7 /* FivoSans-Bold.otf */,
+				27BD6585261A7BB200F5E7A7 /* FivoSans-Heavy-Oblique.otf */,
+				27BD6586261A7BB200F5E7A7 /* FivoSans-Heavy.otf */,
+				27BD657B261A7BB200F5E7A7 /* FivoSans-Light-Oblique.otf */,
+				27BD6581261A7BB200F5E7A7 /* FivoSans-Light.otf */,
+				27BD6583261A7BB200F5E7A7 /* FivoSans-Medium-Oblique.otf */,
+				27BD6580261A7BB200F5E7A7 /* FivoSans-Medium.otf */,
+				27BD6588261A7BB200F5E7A7 /* FivoSans-Oblique.otf */,
+				27BD6582261A7BB200F5E7A7 /* FivoSans-Regular.otf */,
+				27BD6587261A7BB200F5E7A7 /* FivoSans-Thin-Oblique.otf */,
+				27BD657F261A7BB200F5E7A7 /* FivoSans-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		27E9A6FB2617D7710080EE6F /* ExtraViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +172,7 @@
 			children = (
 				27EC5D692617B3E700783D20 /* Models */,
 				27EC5D582617B2D700783D20 /* Extensions */,
+				27BD657A261A7B9F00F5E7A7 /* Fonts */,
 				27EC5D572617B2CD00783D20 /* Views */,
 				27EC5D422617B24B00783D20 /* AppDelegate.swift */,
 				27EC5D442617B24B00783D20 /* SceneDelegate.swift */,
@@ -256,9 +306,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27BD658C261A7BB200F5E7A7 /* FivoSans-Bold.otf in Resources */,
+				27BD658D261A7BB200F5E7A7 /* FivoSans-Thin.otf in Resources */,
+				27BD6594261A7BB200F5E7A7 /* FivoSans-Heavy.otf in Resources */,
+				27BD658B261A7BB200F5E7A7 /* FivoSans-Black.otf in Resources */,
+				27BD658F261A7BB200F5E7A7 /* FivoSans-Light.otf in Resources */,
+				27BD658A261A7BB200F5E7A7 /* FivoSans-Bold-Oblique.otf in Resources */,
+				27BD658E261A7BB200F5E7A7 /* FivoSans-Medium.otf in Resources */,
+				27BD6595261A7BB200F5E7A7 /* FivoSans-Thin-Oblique.otf in Resources */,
+				27BD6590261A7BB200F5E7A7 /* FivoSans-Regular.otf in Resources */,
 				27EC5D4F2617B24C00783D20 /* LaunchScreen.storyboard in Resources */,
+				27BD6589261A7BB200F5E7A7 /* FivoSans-Light-Oblique.otf in Resources */,
+				27BD6596261A7BB200F5E7A7 /* FivoSans-Oblique.otf in Resources */,
+				27BD6592261A7BB200F5E7A7 /* FivoSans-Black-Oblique.otf in Resources */,
 				27EC5D4C2617B24C00783D20 /* Preview Assets.xcassets in Resources */,
 				27EC5D492617B24C00783D20 /* Assets.xcassets in Resources */,
+				27BD6593261A7BB200F5E7A7 /* FivoSans-Heavy-Oblique.otf in Resources */,
+				27BD6591261A7BB200F5E7A7 /* FivoSans-Medium-Oblique.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,7 +28,7 @@ struct AddRecurringCostView: View {
 
                 VStack {
                     Text("New Recurring")
-                        .font(.title)
+                        .font(bold22Font)
                         .padding(.bottom, 20)
                     CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
 
