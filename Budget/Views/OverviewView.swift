@@ -17,11 +17,11 @@ struct OverviewView: View {
             .ignoresSafeArea(.all) // Ignore just for the color
             .overlay(
                 VStack(spacing: 24) {
-                    StatusView()
+                    StatusView(dataModel: $dataModel)
                         .cornerRadius(10)
                         .padding(.horizontal, 20)
                         .padding(.top, 200)
-                    MonthlyView()
+                    MonthlyView(dataModel: $dataModel)
                         .cornerRadius(10)
                         .padding(.horizontal, 20)
                         .padding(.bottom, 200)
@@ -34,6 +34,9 @@ struct OverviewView: View {
 
 struct StatusView: View {
     
+    @Binding var dataModel: BudgetModel
+    
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Status")
@@ -41,14 +44,14 @@ struct StatusView: View {
                 .fontWeight(.semibold)
                 .padding(.bottom, 8)
             HStack(spacing:5) {
-                Text("$\(5000)")
+                Text("$\(dataModel.getTotalBudget() - dataModel.getTotalSpent())")
                     .font(.title2)
                     .fontWeight(.semibold)
                 Text("left to spend")
                     .font(.title3)
                     .fontWeight(.semibold)
             }
-            ProgressBar(value: 0.7)
+            ProgressBar(value: dataModel.getPercentSpent())
                 .cornerRadius(10)
                 .frame(height: 20)
                 .padding(.bottom, 24)
@@ -59,7 +62,7 @@ struct StatusView: View {
                     .foregroundColor(.black)
                 Text("Spent").font(.body)
                 Spacer()
-                Text("$\(2000)")
+                Text("$\(dataModel.getTotalSpent())")
             }
             HStack {
                 Rectangle()
@@ -68,7 +71,7 @@ struct StatusView: View {
                     .foregroundColor(backgroundGray)
                 Text("Budget").font(.body)
                 Spacer()
-                Text("$\(7000)")
+                Text("$\(dataModel.getTotalBudget())")
             }
             
         }
@@ -78,11 +81,10 @@ struct StatusView: View {
     }
 }
 
-let sample = [ ChartCellModel(color: turquoiseColor, value: 2000, name: "Wants"),
-               ChartCellModel(color: orangeColor, value: 3000, name: "Needs"),
-               ChartCellModel(color: unfilledChartColor, value: 1000, name: "Saved"),]
 
 struct MonthlyView : View {
+    
+    @Binding var dataModel: BudgetModel
     
     @State var selectedDonut: String = ""
     
@@ -96,7 +98,7 @@ struct MonthlyView : View {
                 .padding(.bottom, 16)
             
             ZStack {
-                DonutChart(dataModel: ChartDataModel.init(dataModel: sample), onTap: {
+                DonutChart(dataModel: ChartDataModel.init(dataModel: dataModel.getChartDataModel()), onTap: {
                     dataModel in
                     if let dataModel = dataModel {
                         self.selectedDonut = "Spending Type: \(dataModel.name)\nAmount: \(dataModel.value)"
@@ -117,7 +119,7 @@ struct MonthlyView : View {
             }
             Spacer()
             VStack {
-                ForEach(sample) { dataSet in
+                ForEach(dataModel.getChartDataModel()) { dataSet in
                     HStack {
                         Rectangle()
                             .frame(width: 6, height: 20)

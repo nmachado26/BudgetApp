@@ -132,6 +132,10 @@ extension BudgetModel {
         return budgetSpend + recurringSpend
     }
     
+    func getPercentSpent() -> Double {
+        return Double(getTotalSpent()) / Double(getTotalBudget())
+    }
+    
     func getAmountSaved() -> Int {
         
         var saved = 0
@@ -165,10 +169,17 @@ extension BudgetModel {
             needSum = needSum + budget.currentSpend
         }
         
-        for recurringItem in recurringsData.filter({ $0.spendType == "want" }) {
+        for recurringItem in recurringsData.filter({ $0.spendType == "need" }) {
             needSum = needSum + recurringItem.monthlyCost
         }
         
         return needSum
+    }
+    
+    func getChartDataModel() -> [ChartCellModel]{
+        let sample = [ ChartCellModel(color: turquoiseColor, value: CGFloat(getWantsSpent()), name: "Wants"),
+                       ChartCellModel(color: orangeColor, value: CGFloat(getNeedsSpent()), name: "Needs"),
+                       ChartCellModel(color: unfilledChartColor, value: CGFloat(getAmountSaved()), name: "Saved"),]
+        return sample
     }
 }
