@@ -16,9 +16,14 @@ struct ColorModel {
 }
 
 //accessible from whole app this way. Fix later
-let backgroundColor: Color = Color(hex: 0xFFFFFF)
-let backgroundGray: Color = Color(hex: 0xF9F9F9)
-let primaryColor: Color = Color(hex: 0x301134)
+
+let primaryColor: Color = Color(hex: 0x8AA0EE)
+let backgroundGrayColor: Color = Color(hex: 0xF9F9F9)
+let cellBackgroundColor: Color = Color(hex: 0xF5F5F5)
+let budgetBlackColor: Color = Color(hex: 0x1C1C1C)
+
+let mediumGrayColor: Color = Color(hex: 0x999999)
+let lineColor: Color = Color(hex: 0xE8E8E8)
 
 let turquoiseColor: Color = Color(hex: 0x2FF2FF)
 let orangeColor: Color = Color(hex: 0xFF7800)

@@ -19,10 +19,10 @@ struct deleteButton: View {
             ZStack {
                 Circle()
                     .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.gray)
+                    .foregroundColor(cellBackgroundColor)
                 Image(systemName: "xmark")
                     .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.black)
+                    .foregroundColor(mediumGrayColor)
             }
         })
     }

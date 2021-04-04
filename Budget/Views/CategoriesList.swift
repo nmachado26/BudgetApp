@@ -73,6 +73,7 @@ struct CategoryCell : View {
                             .font(.title)
                     }
                     Text(budgetItem.title)
+                        .foregroundColor(.black)
                 }
             }
 

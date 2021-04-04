@@ -71,8 +71,7 @@ struct RecurringCell : View {
             ZStack {
                 Rectangle()
                     .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.black)
-                    .opacity(0.1)
+                    .foregroundColor(cellBackgroundColor)
                     .cornerRadius(15)
                 Text(recurringItem.emojiString)
                     .font(.title)

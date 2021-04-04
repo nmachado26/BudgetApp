@@ -32,7 +32,7 @@ struct ContentView: View {
                 Text("Overview")
             }.tag(3)
         }
-        .accentColor(primaryColor)
+        .accentColor(.black)
         .environmentObject(dataModel)
     }
 }

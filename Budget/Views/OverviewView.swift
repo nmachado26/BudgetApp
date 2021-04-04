@@ -13,7 +13,7 @@ struct OverviewView: View {
     
     var body: some View {
         
-        backgroundGray
+        backgroundGrayColor
             .ignoresSafeArea(.all) // Ignore just for the color
             .overlay(
                 VStack(spacing: 24) {
@@ -70,7 +70,7 @@ struct StatusView: View {
                 Rectangle()
                     .frame(width: 6, height: 20)
                     .cornerRadius(10) //overdone
-                    .foregroundColor(backgroundGray)
+                    .foregroundColor(backgroundGrayColor)
                 Text("Budget").font(.body)
                 Spacer()
                 Text("$\(dataModel.getTotalBudget())")

@@ -40,10 +40,13 @@ struct AddRecurringCostView: View {
 
 
                 TextInput(prompt: "Enter Title", text: $titleText)
+                    .foregroundColor(mediumGrayColor)
                     .padding(.bottom, 20)
                 TextInput(prompt: "Monthly Cost", text: $budgetText)
+                    .foregroundColor(mediumGrayColor)
                     .padding(.bottom, 20)
                 SegmentedControlInput(prompt: "Choose type", selected: $selectedType)
+                    .foregroundColor(mediumGrayColor)
                     .padding(.bottom, 60)
                 CreateButton(emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, objectType: "recurring", isPresented: $isPresented)
                     .environmentObject(dataModel)
@@ -53,9 +56,3 @@ struct AddRecurringCostView: View {
         }
     }
 }
-
-//struct AddRecurringCostView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddRecurringCostView()
-//    }
-//}

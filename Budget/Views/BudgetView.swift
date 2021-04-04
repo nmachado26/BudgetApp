@@ -72,36 +72,15 @@ struct BudgetCell : View {
                 ZStack {
                     Rectangle()
                         .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.black)
-                        .opacity(0.1)
+                        .foregroundColor(cellBackgroundColor)
                         .cornerRadius(15)
                     Text(budgetItem.emojiString)
                         .font(.title)
                 }
             }
-//            Button(action: {
-//
-//            }, label: {
-//                ZStack {
-//                    Rectangle()
-//                        .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                        .foregroundColor(.black)
-//                        .opacity(0.1)
-//                        .cornerRadius(15)
-//                    Text(budgetItem.emojiString)
-//                        .font(.title)
-//                }
-//            })
-            
             Text(budgetItem.title)
             Text("$\(budgetItem.remainingValue()) left")
             
         }
     }
 }
-
-//struct BudgetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BudgetView(dataModel: model)
-//    }
-//}

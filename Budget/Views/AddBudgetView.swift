@@ -40,10 +40,13 @@ struct AddBudgetView: View {
 
                 TextInput(prompt: "Enter Title", text: $titleText)
                     .padding(.bottom, 20)
+                    .foregroundColor(mediumGrayColor)
                 TextInput(prompt: "Enter Budget", text: $budgetText)
                     .padding(.bottom, 20)
+                    .foregroundColor(mediumGrayColor)
                 SegmentedControlInput(prompt: "Choose type", selected: $selectedType)
                     .padding(.bottom, 60)
+                    .foregroundColor(mediumGrayColor)
                 CreateButton(emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, objectType: "budget", isPresented: $isPresented)
                     .environmentObject(dataModel)
 
@@ -127,8 +130,7 @@ struct CategoryButton: View {
                     .frame(width: 1, height: 1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 Rectangle()
                     .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.black)
-                    .opacity(0.1)
+                    .foregroundColor(cellBackgroundColor)
                     .cornerRadius(15)
                 if emojiChosen {
                     Text(emojiText)
@@ -145,6 +147,7 @@ struct CategoryButton: View {
         .padding(.bottom, 8)
         if !emojiChosen {
             Text("+ Add emoji")
+                .foregroundColor(mediumGrayColor)
         }
     }
     

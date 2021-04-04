@@ -62,6 +62,7 @@ struct CalculatorView: View {
                         }
                         if categoryChosen {
                             Text(selectedCategory.title)
+                                .foregroundColor(mediumGrayColor)
                         }
                     }
                     
@@ -125,8 +126,12 @@ struct NumberPad : View {
                                 //currentString = codes.joined(separator:"")
                             }
                         }) {
-                            if j.value == "delete.left.fill" || j.value == "checkmark.circle.fill" {
+                            if j.value == "delete.left.fill"{
                                 Image(systemName: j.value)
+                            }
+                            else if j.value == "checkmark.circle.fill" {
+                                Image(systemName: j.value)
+                                    .foregroundColor(primaryColor)
                             }
                             else {
                                 Text(j.value)
