@@ -17,7 +17,7 @@ struct DonutChart: View {
     var body: some View {
             ZStack {
                 PieChart(dataModel: dataModel, onTap: onTap)
-                InnerCircle(ratio: 1/3).foregroundColor(.white)
+                InnerCircle(ratio: 7/10).foregroundColor(.white)
             }
     }
 }

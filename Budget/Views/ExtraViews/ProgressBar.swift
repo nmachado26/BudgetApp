@@ -18,7 +18,7 @@ struct ProgressBar: View {
                     .foregroundColor(.gray)
                 
                 Rectangle().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.black)
                     .animation(.linear)
             }.cornerRadius(45.0)
         }
