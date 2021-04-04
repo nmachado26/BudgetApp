@@ -18,6 +18,8 @@ struct AddBudgetView: View {
     @State var titleText: String = ""
     @State var budgetText: String = ""
     @State var selectedType : Int = 0
+    
+    @State var emojiChosen: Bool = false
 
     var body: some View {
         NavigationView {
@@ -27,7 +29,7 @@ struct AddBudgetView: View {
                     Text("New Budget")
                         .font(.title)
                         .padding(.bottom, 20)
-                    CategoryButton(emojiText: $emojiText)
+                    CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
 
                 }
                 .padding(.bottom, 20)
@@ -111,6 +113,7 @@ struct CategoryButton: View {
     @State var isFirstResponder = false
 
     @Binding var emojiText: String
+    @Binding var emojiChosen: Bool
 
 
     var body: some View {
@@ -120,7 +123,7 @@ struct CategoryButton: View {
         }) {
             ZStack {
                 //so hacky :(
-                EmojiTextField(text: $emojiText, isFirstResponder: $isFirstResponder)
+                EmojiTextField(emojiChosen: $emojiChosen, text: $emojiText, isFirstResponder: $isFirstResponder)
                     .frame(width: 1, height: 1, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 Rectangle()
                     .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -129,12 +132,21 @@ struct CategoryButton: View {
                     .cornerRadius(15)
                 Text(emojiText)
                     .font(.title)
+                //can do opacity change or hidden flag instead with binding value
+                if emojiChosen {
+                    deleteButton(on: $emojiChosen)
+                        .offset(x: 35, y: -35)
+                }
                 //Image(systemName: "face.smiling")
             }
         }
         .padding(.bottom, 8)
-        Text("+ Add emoji")
+        if !emojiChosen {
+            Text("+ Add emoji")
+        }
     }
+    
+    
 
 }
 

@@ -26,12 +26,15 @@ struct EmojiTextField: UIViewRepresentable {
     @Binding public var isFirstResponder: Bool
     @Binding public var text: String
     
+    @Binding public var emojiChosen: Bool
+    
     public var configuration = { (view: EmojiTextFieldUIKit) in }
     
-    public init(text: Binding<String>, isFirstResponder: Binding<Bool>, configuration: @escaping (EmojiTextFieldUIKit) -> () = { _ in }) {
+    public init(emojiChosen: Binding<Bool>, text: Binding<String>, isFirstResponder: Binding<Bool>, configuration: @escaping (EmojiTextFieldUIKit) -> () = { _ in }) {
         self.configuration = configuration
         self._text = text
         self._isFirstResponder = isFirstResponder
+        self._emojiChosen = emojiChosen
     }
     
     public func makeUIView(context: Context) -> EmojiTextFieldUIKit {
@@ -55,16 +58,19 @@ struct EmojiTextField: UIViewRepresentable {
     }
     
     public func makeCoordinator() -> Coordinator {
-        Coordinator($text, isFirstResponder: $isFirstResponder)
+        Coordinator($text, isFirstResponder: $isFirstResponder, emojiChosen: $emojiChosen)
     }
     
     public class Coordinator: NSObject, UITextFieldDelegate {
         var text: Binding<String>
         var isFirstResponder: Binding<Bool>
         
-        init(_ text: Binding<String>, isFirstResponder: Binding<Bool>) {
+        var emojiChosen: Binding<Bool>
+        
+        init(_ text: Binding<String>, isFirstResponder: Binding<Bool>, emojiChosen: Binding<Bool>) {
             self.text = text
             self.isFirstResponder = isFirstResponder
+            self.emojiChosen = emojiChosen
         }
         
         @objc public func textViewDidChange(_ textField: EmojiTextFieldUIKit) {
@@ -107,6 +113,8 @@ struct EmojiTextField: UIViewRepresentable {
 //            }
             if string.count >= 1 {
                 self.text.wrappedValue = string
+                self.emojiChosen.wrappedValue = true
+               
                 
                 self.isFirstResponder.wrappedValue = false
 

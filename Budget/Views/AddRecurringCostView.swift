@@ -17,6 +17,8 @@ struct AddRecurringCostView: View {
     @State var budgetText: String = ""
     @State var selectedFrequency : Int = 0
     @State var selectedType : Int = 0
+    
+    @State var emojiChosen: Bool = false
 
     
     var body: some View {
@@ -28,7 +30,7 @@ struct AddRecurringCostView: View {
                     Text("New Recurring")
                         .font(.title)
                         .padding(.bottom, 20)
-                    CategoryButton(emojiText: $emojiText)
+                    CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
 
                 }
                 .padding(.bottom, 20)
