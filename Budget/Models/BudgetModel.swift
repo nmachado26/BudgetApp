@@ -91,7 +91,6 @@ final class BudgetModel: ObservableObject {
         try! realm.write {
             budget.currentSpend = budget.currentSpend + expense
         }
-        print("hi")
     }
 }
 

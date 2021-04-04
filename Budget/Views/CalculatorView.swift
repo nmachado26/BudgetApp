@@ -71,7 +71,7 @@ struct CalculatorView: View {
                 .environmentObject(dataModel)
                 
                 Spacer()
-                NumberPad(codes: $code, selectedCategory: $selectedCategory)
+                NumberPad(codes: $code, selectedCategory: $selectedCategory, categoryChosen: $categoryChosen)
                     .environmentObject(dataModel)
             }
         }
@@ -83,6 +83,7 @@ struct NumberPad : View {
     @EnvironmentObject var dataModel: BudgetModel
     @Binding var codes : [String]
     @Binding var selectedCategory : Budget
+    @Binding var categoryChosen: Bool
     
     @State private var currentString: String = ""
     
@@ -115,6 +116,7 @@ struct NumberPad : View {
                                     dataModel.addExpense(budget: self.selectedCategory, expenseString: expenseStr)
                                     
                                     self.codes.removeAll()
+                                    self.categoryChosen = false
                                     //currentString = ""
                                 }
                             }

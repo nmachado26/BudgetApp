@@ -36,9 +36,7 @@ struct EmojiPicker: View {
     
     var body: some View {
         VStack {
-            Text("Hi")
             ScrollView {
-                Text("Hi2")
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(emojiList, id: \.self) { sublist in
                         ForEach(sublist, id: \.self) { item in

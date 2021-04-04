@@ -114,7 +114,7 @@ struct MonthlyView : View {
                     Text("This month")
                         .font(.title3)
                         .fontWeight(.semibold)
-                    Text("$3000")
+                    Text("$\(dataModel.getTotalSpent())")
                         .font(.body)
                         .fontWeight(.semibold)
                 }
@@ -129,7 +129,7 @@ struct MonthlyView : View {
                             .foregroundColor(dataSet.color)
                         Text(dataSet.name).font(.body)
                         Spacer()
-                        Text("$\(dataSet.value)")
+                        Text("$\(Int(dataSet.value))")
                     }
                 }
                 .padding(.horizontal, 24)
