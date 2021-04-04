@@ -40,7 +40,7 @@ struct RecurringsView: View {
                     .padding(.top, 20)
                 }
                 .environmentObject(dataModel)
-                .navigationBarTitle("Recurring")
+                .navigationBarTitle("Recurring", displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {

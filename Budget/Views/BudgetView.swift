@@ -43,7 +43,7 @@ struct BudgetView: View {
                 .sheet(isPresented: $showingAddBudgetView) {
                     AddBudgetView(isPresented: $showingAddBudgetView)
                 }
-                .navigationBarTitle("Budget")
+                .navigationBarTitle("Budget", displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
