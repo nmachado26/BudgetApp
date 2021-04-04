@@ -10,7 +10,7 @@ import SwiftUI
 //calculator code from https://kavsoft.dev/Swift/Custom%20NumberPad/
 struct CalculatorView: View {
     
-    @Binding var dataModel: BudgetModel
+    @EnvironmentObject var dataModel: BudgetModel
     
     @State var selectedCategory : Budget = Budget(emojiString: "", title: "", budgetedValue: 0, spendType: "")
     @State private var showingCategoriesList = false
@@ -58,11 +58,13 @@ struct CalculatorView: View {
                     }
                     
                 }).sheet(isPresented: $showingCategoriesList) {
-                    CategoriesList(dataModel: $dataModel, selectedCategory: $selectedCategory, isPresented: $showingCategoriesList)
+                    CategoriesList(selectedCategory: $selectedCategory, isPresented: $showingCategoriesList)
                 }
+                .environmentObject(dataModel)
                 
                 Spacer()
-                NumberPad(dataModel: $dataModel, codes: $code, selectedCategory: $selectedCategory)
+                NumberPad(codes: $code, selectedCategory: $selectedCategory)
+                    .environmentObject(dataModel)
             }
         }
     }
@@ -70,7 +72,7 @@ struct CalculatorView: View {
 
 struct NumberPad : View {
     
-    @Binding var dataModel: BudgetModel
+    @EnvironmentObject var dataModel: BudgetModel
     @Binding var codes : [String]
     @Binding var selectedCategory : Budget
     

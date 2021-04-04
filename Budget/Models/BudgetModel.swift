@@ -11,9 +11,8 @@ import RealmSwift
 final class BudgetModel: ObservableObject {
 
     //ssoooooo inefficient. Make the BudgetModel a binding everywhere. temp solution
-    var budgetsData: [Budget]
-    var recurringsData: [RecurringCost]
-    var testStr: String
+    @Published var budgetsData: [Budget]
+    @Published var recurringsData: [RecurringCost]
 
     //var realm: Realm - don't do singleton yet
 
@@ -32,25 +31,23 @@ final class BudgetModel: ObservableObject {
         self.recurringsData = realm.objects(RecurringCost.self).toArray(type: RecurringCost.self)
 
         
-        self.testStr = "Before"
         
-        self.budgetsData.append(contentsOf: [
-            Budget(emojiString: "🍔", title: "Food", budgetedValue: 300, spendType: "need"),
-            Budget(emojiString: "☕️", title: "Coffee", budgetedValue: 80, spendType: "want"),
-            Budget(emojiString: "💗", title: "Dates", budgetedValue: 200, spendType: "want"),
-        ])
-        
-        self.recurringsData.append(contentsOf: [
-            RecurringCost(emojiString: "🏋️‍♀️", title: "Gym", value: 120, spendType: "need"),
-            RecurringCost(emojiString: "🏠", title: "Rent", value: 1300, spendType: "need"),
-            RecurringCost(emojiString: "🎥", title: "Netflix", value: 10, spendType: "want")
-        ])
+//        self.budgetsData.append(contentsOf: [
+//            Budget(emojiString: "🍔", title: "Food", budgetedValue: 300, spendType: "need"),
+//            Budget(emojiString: "☕️", title: "Coffee", budgetedValue: 80, spendType: "want"),
+//            Budget(emojiString: "💗", title: "Dates", budgetedValue: 200, spendType: "want"),
+//        ])
+//
+//        self.recurringsData.append(contentsOf: [
+//            RecurringCost(emojiString: "🏋️‍♀️", title: "Gym", value: 120, spendType: "need"),
+//            RecurringCost(emojiString: "🏠", title: "Rent", value: 1300, spendType: "need"),
+//            RecurringCost(emojiString: "🎥", title: "Netflix", value: 10, spendType: "want")
+//        ])
 
     }
 
     func addBudget(budget: Budget) {
 
-        self.testStr = "SUCCESS"
         let realm = try! Realm()
         try! realm.write {
             realm.add(budget)
@@ -64,7 +61,6 @@ final class BudgetModel: ObservableObject {
 
     //why does class func not allow access to my lists (budgetsData)?
     func addRecurring(recurringItem: RecurringCost) {
-        self.testStr = "SUCCESS"
         
         let realm = try! Realm()
         try! realm.write {

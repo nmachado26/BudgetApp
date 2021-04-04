@@ -11,7 +11,7 @@ import SwiftUI
 //could probably reuse budgetsView by creating a wrapper class
 struct CategoriesList: View {
 
-    @Binding var dataModel: BudgetModel
+    @EnvironmentObject var dataModel: BudgetModel
     @Binding var selectedCategory: Budget
     @Binding var isPresented: Bool
 

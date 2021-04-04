@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddRecurringCostView: View {
     
-    @Binding var dataModel: BudgetModel
+    @EnvironmentObject var dataModel: BudgetModel
     @Binding var isPresented: Bool
 
     @State var emojiText: String = ""
@@ -43,7 +43,8 @@ struct AddRecurringCostView: View {
                     .padding(.bottom, 20)
                 SegmentedControlInput(prompt: "Choose type", selected: $selectedType)
                     .padding(.bottom, 60)
-                CreateButton(dataModel: $dataModel, emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, objectType: "recurring", isPresented: $isPresented)
+                CreateButton(emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, objectType: "recurring", isPresented: $isPresented)
+                    .environmentObject(dataModel)
 
 
             }

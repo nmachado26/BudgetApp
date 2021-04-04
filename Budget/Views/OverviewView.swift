@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OverviewView: View {
     
-    @Binding var dataModel: BudgetModel
+    @EnvironmentObject var dataModel: BudgetModel
     
     var body: some View {
         
@@ -17,14 +17,16 @@ struct OverviewView: View {
             .ignoresSafeArea(.all) // Ignore just for the color
             .overlay(
                 VStack(spacing: 24) {
-                    StatusView(dataModel: $dataModel)
+                    StatusView()
                         .cornerRadius(10)
                         .padding(.horizontal, 20)
                         .padding(.top, 200)
-                    MonthlyView(dataModel: $dataModel)
+                        .environmentObject(dataModel)
+                    MonthlyView()
                         .cornerRadius(10)
                         .padding(.horizontal, 20)
                         .padding(.bottom, 200)
+                        .environmentObject(dataModel)
                 }
             
             )
@@ -34,7 +36,7 @@ struct OverviewView: View {
 
 struct StatusView: View {
     
-    @Binding var dataModel: BudgetModel
+    @EnvironmentObject var dataModel: BudgetModel
     
     
     var body: some View {
@@ -84,7 +86,7 @@ struct StatusView: View {
 
 struct MonthlyView : View {
     
-    @Binding var dataModel: BudgetModel
+    @EnvironmentObject var dataModel: BudgetModel
     
     @State var selectedDonut: String = ""
     

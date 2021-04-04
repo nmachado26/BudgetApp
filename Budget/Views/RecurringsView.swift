@@ -16,7 +16,7 @@ import SwiftUI
 
 struct RecurringsView: View {
 
-    @Binding var dataModel: BudgetModel
+    @EnvironmentObject var dataModel: BudgetModel
     @State private var showingAddBudgetView = false
 
     let columns = [
@@ -40,8 +40,9 @@ struct RecurringsView: View {
                             Image(systemName: "plus")
                         })
                         .sheet(isPresented: $showingAddBudgetView) {
-                            AddRecurringCostView(dataModel: $dataModel, isPresented: $showingAddBudgetView)
+                            AddRecurringCostView(isPresented: $showingAddBudgetView)
                         }
+                        .environmentObject(dataModel)
 
                     }
                     .padding(.horizontal, 16)
@@ -54,7 +55,7 @@ struct RecurringsView: View {
                     .padding(.horizontal, 0)
                     .padding(.top, 20)
                 }
-                .navigationBarTitle("Refresh")
+                .navigationBarTitle("Recurring")
                 //.navigationBarHidden(true)
             }
         }

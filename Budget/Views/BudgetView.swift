@@ -16,7 +16,7 @@ import SwiftUI
 
 struct BudgetView: View {
 
-    @Binding var dataModel: BudgetModel
+    @EnvironmentObject var dataModel: BudgetModel
     @State private var showingAddBudgetView = false
 
     let columns = [
@@ -40,8 +40,9 @@ struct BudgetView: View {
                             Image(systemName: "plus")
                         })
                         .sheet(isPresented: $showingAddBudgetView) {
-                            AddBudgetView(dataModel: $dataModel, isPresented: $showingAddBudgetView)
+                            AddBudgetView(isPresented: $showingAddBudgetView)
                         }
+                        .environmentObject(dataModel)
 
                     }
                     .padding(.horizontal, 16)
