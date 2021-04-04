@@ -12,6 +12,7 @@
 		270D766A26192FBC0085EFC1 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D766926192FBC0085EFC1 /* ProgressBar.swift */; };
 		270D766D261931C10085EFC1 /* DonutChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D766C261931C10085EFC1 /* DonutChart.swift */; };
 		2764D139261978E5002F11D2 /* deleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2764D138261978E5002F11D2 /* deleteButton.swift */; };
+		2764D13C26198524002F11D2 /* BudgetDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2764D13B26198524002F11D2 /* BudgetDetail.swift */; };
 		277860522618087200DF4839 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277860512618087200DF4839 /* EmojiPicker.swift */; };
 		27786055261808CC00DF4839 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27786054261808CC00DF4839 /* String.swift */; };
 		2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778605B26181B5800DF4839 /* EmojiTextField.swift */; };
@@ -44,6 +45,7 @@
 		270D766926192FBC0085EFC1 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		270D766C261931C10085EFC1 /* DonutChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChart.swift; sourceTree = "<group>"; };
 		2764D138261978E5002F11D2 /* deleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteButton.swift; sourceTree = "<group>"; };
+		2764D13B26198524002F11D2 /* BudgetDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetail.swift; sourceTree = "<group>"; };
 		277860512618087200DF4839 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		27786054261808CC00DF4839 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2778605B26181B5800DF4839 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				27FC268C26191589004247E2 /* AddRecurringCostView.swift */,
 				270D7660261927B80085EFC1 /* RecurringsView.swift */,
 				270D76642619299B0085EFC1 /* CalculatorView.swift */,
+				2764D13B26198524002F11D2 /* BudgetDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27EC5D432617B24B00783D20 /* AppDelegate.swift in Sources */,
+				2764D13C26198524002F11D2 /* BudgetDetail.swift in Sources */,
 				27E9A6FD2617D77D0080EE6F /* SegmentedControlView.swift in Sources */,
 				270D7661261927B80085EFC1 /* RecurringsView.swift in Sources */,
 				270D76652619299B0085EFC1 /* CalculatorView.swift in Sources */,

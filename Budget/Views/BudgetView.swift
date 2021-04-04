@@ -68,15 +68,31 @@ struct BudgetCell : View {
     
     var body: some View {
         VStack {
-            ZStack {
-                Rectangle()
-                    .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .foregroundColor(.black)
-                    .opacity(0.1)
-                    .cornerRadius(15)
-                Text(budgetItem.emojiString)
-                    .font(.title)
+            NavigationLink(destination: BudgetDetail(budget: $budgetItem)) {
+                ZStack {
+                    Rectangle()
+                        .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.black)
+                        .opacity(0.1)
+                        .cornerRadius(15)
+                    Text(budgetItem.emojiString)
+                        .font(.title)
+                }
             }
+//            Button(action: {
+//
+//            }, label: {
+//                ZStack {
+//                    Rectangle()
+//                        .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                        .foregroundColor(.black)
+//                        .opacity(0.1)
+//                        .cornerRadius(15)
+//                    Text(budgetItem.emojiString)
+//                        .font(.title)
+//                }
+//            })
+            
             Text(budgetItem.title)
             Text("$\(budgetItem.remainingValue()) left")
             
