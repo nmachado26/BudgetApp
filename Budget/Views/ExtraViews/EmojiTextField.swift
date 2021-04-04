@@ -39,7 +39,7 @@ struct EmojiTextField: UIViewRepresentable {
         
         //clear cursor and text. SO hacky ahhhh
         view.tintColor = .clear
-        view.textColor = .clear
+        view.textColor = .black
         
         view.addTarget(context.coordinator, action: #selector(Coordinator.textViewDidChange), for: .editingChanged)
         view.delegate = context.coordinator
@@ -68,12 +68,25 @@ struct EmojiTextField: UIViewRepresentable {
         }
         
         @objc public func textViewDidChange(_ textField: EmojiTextFieldUIKit) {
-            self.text.wrappedValue = textField.text ?? ""
+            if let finalChar = textField.text?.last {
+                let str = String(finalChar)
+                self.text.wrappedValue = str
+                return
+            }
+            self.text.wrappedValue = ""
+           
+            //self.text.wrappedValue = textField.text?.last ?? ""
         }
         
-        public func textFieldDidBeginEditing(_ textField: EmojiTextFieldUIKit) {
-            self.isFirstResponder.wrappedValue = true
-        }
+//        public func textFieldDidBeginEditing(_ textField: UITextField) {
+//            //textField.text = "" // shouldnt do this
+//            self.isFirstResponder.wrappedValue = true
+//
+//        }
+//        public func textFieldDidBeginEditing(_ textField: EmojiTextFieldUIKit) {
+//            textField.text = ""
+//            self.isFirstResponder.wrappedValue = true
+//        }
         
         public func textFieldDidEndEditing(_ textField: EmojiTextFieldUIKit) {
             self.isFirstResponder.wrappedValue = false
@@ -84,13 +97,19 @@ struct EmojiTextField: UIViewRepresentable {
                 return true
             }
             
-            if let characterCount = textField.text?.count {
-                // CHECK FOR CHARACTER COUNT IN TEXT FIELD
-                if characterCount >= 1 {
-                    // RESIGN FIRST RERSPONDER TO HIDE KEYBOARD
-                    self.isFirstResponder.wrappedValue = false
-                    //return textField.resignFirstResponder()
-                }
+//            if let characterCount = textField.text?.count {
+//                // CHECK FOR CHARACTER COUNT IN TEXT FIELD
+//                if characterCount >= 1 {
+//                    // RESIGN FIRST RERSPONDER TO HIDE KEYBOARD
+//                    self.isFirstResponder.wrappedValue = false
+//                    //return textField.resignFirstResponder()
+//                }
+//            }
+            if string.count >= 1 {
+                self.text.wrappedValue = string
+                
+                self.isFirstResponder.wrappedValue = false
+
             }
             return true
         }

@@ -126,7 +126,7 @@ struct CategoryButton: View {
                     .foregroundColor(.black)
                     .opacity(0.1)
                     .cornerRadius(15)
-                Text(self.emojiText)
+                Text(emojiText)
                     .font(.title)
                 //Image(systemName: "face.smiling")
             }
