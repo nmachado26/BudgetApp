@@ -71,7 +71,7 @@ struct CalculatorView: View {
                     .padding(.bottom, 32)
                     .environmentObject(dataModel)
                 }
-                .offset(y: -50)
+                .offset(y: -24)
                 
                 NumberPad(codes: $code, selectedCategory: $selectedCategory, categoryChosen: $categoryChosen)
                     .padding(.horizontal, calcMargin)
@@ -117,15 +117,19 @@ struct NumberPad : View {
                         }) {
                             if j.value == "delete.left.fill"{
                                 Image(systemName: j.value)
+                                    .padding(.bottom, 50)
                             }
                             else if j.value == "checkmark.circle.fill" {
                                 Image(systemName: j.value)
+                                    .frame(width: 30, height: 30)
                                     .foregroundColor(primaryColor)
+                                    .padding(.bottom, 50)
                             }
                             else {
                                 Text(j.value)
                                     .font(bold28Font)
-                                    .padding(.vertical)
+                                    .padding(.bottom, 50)
+                                    .frame(maxWidth: .infinity, alignment: .center)
                             }
                         }
                     }
