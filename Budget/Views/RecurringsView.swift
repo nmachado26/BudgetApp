@@ -17,7 +17,7 @@ import SwiftUI
 struct RecurringsView: View {
 
     @EnvironmentObject var dataModel: BudgetModel
-    @State private var showingAddBudgetView = false
+    @State private var showingAddRecurringView = false
 
     let columns = [
         GridItem(.flexible()),
@@ -31,22 +31,6 @@ struct RecurringsView: View {
         NavigationView {
             VStack(alignment: .leading){
                 ScrollView {
-                    HStack() {
-                        Spacer()
-
-                        Button(action: {
-                            self.showingAddBudgetView = true
-                        }, label: {
-                            Image(systemName: "plus")
-                        })
-                        .sheet(isPresented: $showingAddBudgetView) {
-                            AddRecurringCostView(isPresented: $showingAddBudgetView)
-                        }
-                        .environmentObject(dataModel)
-
-                    }
-                    .padding(.horizontal, 16)
-
                     //LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(dataModel.recurringsData.indices, id: \.self) { i in
                             RecurringCell(recurringItem: $dataModel.recurringsData[i])
@@ -55,7 +39,20 @@ struct RecurringsView: View {
                     .padding(.horizontal, 0)
                     .padding(.top, 20)
                 }
+                .environmentObject(dataModel)
                 .navigationBarTitle("Recurring")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            self.showingAddRecurringView = true
+                        }, label: {
+                            Image(systemName: "plus")
+                        })
+                        .sheet(isPresented: $showingAddRecurringView) {
+                            AddRecurringCostView(isPresented: $showingAddRecurringView)
+                        }
+                    }
+                }
                 //.navigationBarHidden(true)
             }
         }

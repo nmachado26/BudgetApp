@@ -148,13 +148,13 @@
 			children = (
 				27E9A6FB2617D7710080EE6F /* ExtraViews */,
 				27EC5D602617B33200783D20 /* BudgetView.swift */,
-				27EC5D632617B33D00783D20 /* OverviewView.swift */,
 				27E9A6F42617C9640080EE6F /* AddBudgetView.swift */,
 				27EEB61626183F50007247AB /* CategoriesList.swift */,
 				27FC268C26191589004247E2 /* AddRecurringCostView.swift */,
 				270D7660261927B80085EFC1 /* RecurringsView.swift */,
 				270D76642619299B0085EFC1 /* CalculatorView.swift */,
 				2764D13B26198524002F11D2 /* BudgetDetail.swift */,
+				27EC5D632617B33D00783D20 /* OverviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

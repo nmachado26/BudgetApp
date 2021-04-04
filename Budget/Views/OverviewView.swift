@@ -70,7 +70,7 @@ struct StatusView: View {
                 Rectangle()
                     .frame(width: 6, height: 20)
                     .cornerRadius(10) //overdone
-                    .foregroundColor(backgroundGrayColor)
+                    .foregroundColor(unfilledChartColor)
                 Text("Budget").font(.body)
                 Spacer()
                 Text("$\(dataModel.getTotalBudget())")
