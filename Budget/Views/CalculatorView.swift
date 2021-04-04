@@ -11,7 +11,7 @@ import SwiftUI
 
 //calculator code from https://kavsoft.dev/Swift/Custom%20NumberPad/
 
-let calcMargin: CGFloat = 48
+let calcMargin: CGFloat = 56
 
 struct CalculatorView: View {
     
@@ -33,7 +33,7 @@ struct CalculatorView: View {
                             .font(bold80Font)
                         Text(code.joined(separator:""))
                             .font(bold80Font)
-                    }.padding(.bottom, 56)
+                    }.padding(.bottom, 48)
                     
                     Button(action: {
                         self.showingCategoriesList = true
@@ -117,19 +117,27 @@ struct NumberPad : View {
                         }) {
                             if j.value == "delete.left.fill"{
                                 Image(systemName: j.value)
-                                    .padding(.bottom, 50)
+                                    .padding(.bottom, 76)
                             }
                             else if j.value == "checkmark.circle.fill" {
                                 Image(systemName: j.value)
                                     .frame(width: 30, height: 30)
                                     .foregroundColor(primaryColor)
-                                    .padding(.bottom, 50)
+                                    .padding(.bottom, 76)
                             }
                             else {
-                                Text(j.value)
-                                    .font(bold28Font)
-                                    .padding(.bottom, 50)
-                                    .frame(maxWidth: .infinity, alignment: .center)
+                                if j.value == "0" {
+                                    Text(j.value)
+                                        .font(bold28Font)
+                                        .padding(.bottom, 76)
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                }
+                                else {
+                                    Text(j.value)
+                                        .font(bold28Font)
+                                        .padding(.bottom, 46)
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                }
                             }
                         }
                     }
