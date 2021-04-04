@@ -54,7 +54,7 @@ struct CalculatorView: View {
                             else {
                                 Image(systemName: "plus")
                             }
-
+                            
                             if categoryChosen {
                                 deleteButton(on: $categoryChosen)
                                     .offset(x: 35, y: -35)
@@ -99,20 +99,24 @@ struct NumberPad : View {
                         
                         Button(action: {
                             if j.value == "delete.left.fill" {
-                                
-                                self.codes.removeLast()
+                                if !self.codes.isEmpty {
+                                    self.codes.removeLast()
+                                    
+                                }
                                 //currentString = codes.joined(separator:"")
                                 
                             }
                             else if j.value == "checkmark.circle.fill" {
-                                print("done: \(self.getCode())")
                                 
-                                let expenseStr = codes.joined(separator:"")
-                                
-                                dataModel.addExpense(budget: self.selectedCategory, expenseString: expenseStr)
-                                
-                                self.codes.removeAll()
-                                //currentString = ""
+                                if !codes.isEmpty {
+                                    
+                                    let expenseStr = codes.joined(separator:"")
+                                    
+                                    dataModel.addExpense(budget: self.selectedCategory, expenseString: expenseStr)
+                                    
+                                    self.codes.removeAll()
+                                    //currentString = ""
+                                }
                             }
                             else {
                                 self.codes.append(j.value)
