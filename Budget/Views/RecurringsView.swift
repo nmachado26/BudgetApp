@@ -15,28 +15,26 @@ import SwiftUI
 
 
 struct RecurringsView: View {
-
+    
     @EnvironmentObject var dataModel: BudgetModel
     @State private var showingAddRecurringView = false
-
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
-
+    
     var body: some View {
-
-
+        
+        
         NavigationView {
             VStack(alignment: .leading){
                 ScrollView {
-                    //LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(dataModel.recurringsData.indices, id: \.self) { i in
-                            RecurringCell(recurringItem: $dataModel.recurringsData[i])
-                        }
-                    //}
-                    .padding(.horizontal, 0)
+                    ForEach(dataModel.recurringsData.indices, id: \.self) { i in
+                        RecurringCell(recurringItem: $dataModel.recurringsData[i])
+                    }
+                    .padding(.horizontal, 24)
                     .padding(.top, 20)
                 }
                 .environmentObject(dataModel)
@@ -60,9 +58,9 @@ struct RecurringsView: View {
 }
 
 struct RecurringCell : View {
-
+    
     @Binding var recurringItem: RecurringCost
-
+    
     var body: some View {
         HStack {
             ZStack {

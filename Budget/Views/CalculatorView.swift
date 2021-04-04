@@ -10,6 +10,9 @@ import SwiftUI
 //sick demo: https://www.youtube.com/watch?v=fuTDDeKs_gc
 
 //calculator code from https://kavsoft.dev/Swift/Custom%20NumberPad/
+
+let calcMargin: CGFloat = 48
+
 struct CalculatorView: View {
     
     @EnvironmentObject var dataModel: BudgetModel
@@ -23,56 +26,55 @@ struct CalculatorView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
                 
-                HStack(spacing: 5) {
-                    Text("$")
-                        .font(bold80Font)
-                    Text(code.joined(separator:""))
-                        .font(bold80Font)
-                }.padding(.vertical)
-                
-                Spacer()
-                
-                
-                Button(action: {
-                    self.showingCategoriesList = true
-                }, label: {
+                Group {
+                    HStack(spacing: 5) {
+                        Text("$")
+                            .font(bold80Font)
+                        Text(code.joined(separator:""))
+                            .font(bold80Font)
+                    }.padding(.bottom, 56)
                     
-                    VStack {
-                        ZStack {
-                            Rectangle()
-                                .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(.black)
-                                .opacity(0.1)
-                                .cornerRadius(15)
-                            if self.categoryChosen {
-                                Text(selectedCategory.emojiString)
-                                    .font(emojiFont)
-                            }
-                            else {
-                                Image(systemName: "plus")
-                            }
-                            
-                            if categoryChosen {
-                                deleteButton(on: $categoryChosen)
-                                    .offset(x: 35, y: -35)
+                    Button(action: {
+                        self.showingCategoriesList = true
+                    }, label: {
+                        
+                        VStack {
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                    .foregroundColor(.black)
+                                    .opacity(0.1)
+                                    .cornerRadius(15)
+                                if self.categoryChosen {
+                                    Text(selectedCategory.emojiString)
+                                        .font(emojiFont)
+                                }
+                                else {
+                                    Image(systemName: "plus")
+                                }
+                                
+                                if categoryChosen {
+                                    deleteButton(on: $categoryChosen)
+                                        .offset(x: 35, y: -35)
+                                    Text(selectedCategory.title)
+                                        .font(medium14Font)
+                                        .foregroundColor(mediumGrayColor)
+                                        .offset(y: 60)
+                                }
                             }
                         }
-                        if categoryChosen {
-                            Text(selectedCategory.title)
-                                .font(medium14Font)
-                                .foregroundColor(mediumGrayColor)
-                        }
+                        
+                    }).sheet(isPresented: $showingCategoriesList) {
+                        CategoriesList(selectedCategory: $selectedCategory, isPresented: $showingCategoriesList, categoryChosen: $categoryChosen)
                     }
-                    
-                }).sheet(isPresented: $showingCategoriesList) {
-                    CategoriesList(selectedCategory: $selectedCategory, isPresented: $showingCategoriesList, categoryChosen: $categoryChosen)
+                    .padding(.bottom, 32)
+                    .environmentObject(dataModel)
                 }
-                .environmentObject(dataModel)
+                .offset(y: -50)
                 
-                Spacer()
                 NumberPad(codes: $code, selectedCategory: $selectedCategory, categoryChosen: $categoryChosen)
+                    .padding(.horizontal, calcMargin)
                     .environmentObject(dataModel)
             }
         }
@@ -92,38 +94,25 @@ struct NumberPad : View {
     var body : some View {
         
         VStack(alignment: .leading, spacing: 20) {
-            
             ForEach(datas) { i in
-                
-                HStack(spacing: self.getSpacing()) {
-                    
+                HStack(spacing: getSpacing()) {
                     ForEach(i.row) { j in
-                        
                         Button(action: {
                             if j.value == "delete.left.fill" {
                                 if !self.codes.isEmpty {
                                     self.codes.removeLast()
-                                    
                                 }
-                                //currentString = codes.joined(separator:"")
-                                
                             }
                             else if j.value == "checkmark.circle.fill" {
-                                
                                 if !codes.isEmpty {
-                                    
                                     let expenseStr = codes.joined(separator:"")
-                                    
                                     dataModel.addExpense(budget: self.selectedCategory, expenseString: expenseStr)
-                                    
                                     self.codes.removeAll()
                                     self.categoryChosen = false
-                                    //currentString = ""
                                 }
                             }
                             else {
                                 self.codes.append(j.value)
-                                //currentString = codes.joined(separator:"")
                             }
                         }) {
                             if j.value == "delete.left.fill"{
@@ -142,11 +131,12 @@ struct NumberPad : View {
                     }
                 }
             }
-        }.foregroundColor(.black)
+        }
+        .foregroundColor(.black)
     }
     
     func getSpacing()->CGFloat {
-        return UIScreen.main.bounds.width / 3
+        return (UIScreen.main.bounds.width - (calcMargin * 2)) / 3
     }
     
     func getCode()->String {

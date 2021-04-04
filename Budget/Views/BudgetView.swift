@@ -34,6 +34,7 @@ struct BudgetView: View {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(dataModel.budgetsData.indices, id: \.self) { i in
                             BudgetCell(budgetItem: $dataModel.budgetsData[i])
+                                .padding(.bottom, 8)
                         }
                     }
                     .padding(.horizontal, 0)
@@ -80,6 +81,7 @@ struct BudgetCell : View {
             }
             Text(budgetItem.title)
                 .font(bold14Font)
+                .padding(.bottom, 2)
             Text("$\(budgetItem.remainingValue()) left")
                 .font(medium13Font)
             
