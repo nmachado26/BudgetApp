@@ -42,7 +42,7 @@ struct EmojiTextField: UIViewRepresentable {
         
         //clear cursor and text. SO hacky ahhhh
         view.tintColor = .clear
-        view.textColor = .black
+        view.textColor = .clear
         
         view.addTarget(context.coordinator, action: #selector(Coordinator.textViewDidChange), for: .editingChanged)
         view.delegate = context.coordinator

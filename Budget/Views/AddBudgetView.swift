@@ -130,8 +130,10 @@ struct CategoryButton: View {
                     .foregroundColor(.black)
                     .opacity(0.1)
                     .cornerRadius(15)
-                Text(emojiText)
-                    .font(.title)
+                if emojiChosen {
+                    Text(emojiText)
+                        .font(.title)
+                }
                 //can do opacity change or hidden flag instead with binding value
                 if emojiChosen {
                     deleteButton(on: $emojiChosen)
