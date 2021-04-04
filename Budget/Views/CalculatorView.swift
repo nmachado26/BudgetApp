@@ -98,7 +98,7 @@ struct NumberPad : View {
                 HStack(spacing: getSpacing()) {
                     ForEach(i.row) { j in
                         Button(action: {
-                            if j.value == "delete.left.fill" {
+                            if j.value == "chevron.backward" {
                                 if !self.codes.isEmpty {
                                     self.codes.removeLast()
                                 }
@@ -115,15 +115,18 @@ struct NumberPad : View {
                                 self.codes.append(j.value)
                             }
                         }) {
-                            if j.value == "delete.left.fill"{
+                            if j.value == "chevron.backward"{
                                 Image(systemName: j.value)
+                                    .font(Font.system(size: 20, weight: .heavy))
                                     .padding(.bottom, 76)
+                                    .offset(x: 7, y: -3)
                             }
                             else if j.value == "checkmark.circle.fill" {
                                 Image(systemName: j.value)
-                                    .frame(width: 30, height: 30)
+                                    .font(Font.system(size: 30))
                                     .foregroundColor(primaryColor)
                                     .padding(.bottom, 76)
+                                    .offset(x: 3, y: -2)
                             }
                             else {
                                 if j.value == "0" {
@@ -131,6 +134,7 @@ struct NumberPad : View {
                                         .font(bold28Font)
                                         .padding(.bottom, 76)
                                         .frame(maxWidth: .infinity, alignment: .center)
+                                        .offset(x: 8)
                                 }
                                 else {
                                     Text(j.value)
@@ -177,7 +181,7 @@ var datas = [
     type(id: 0, row: [row(id: 0, value: "1"), row(id: 1, value: "2"), row(id: 2, value: "3")]),
     type(id: 1, row: [row(id: 0, value: "4"), row(id: 1, value: "5"), row(id: 2, value: "6")]),
     type(id: 2, row: [row(id: 0, value: "7"), row(id: 1, value: "8"), row(id: 2, value: "9")]),
-    type(id: 3, row: [row(id: 0, value: "delete.left.fill"), row(id: 1, value: "0"), row(id: 2, value: "checkmark.circle.fill")])
+    type(id: 3, row: [row(id: 0, value: "chevron.backward"), row(id: 1, value: "0"), row(id: 2, value: "checkmark.circle.fill")])
     
 ]
 
