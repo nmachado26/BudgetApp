@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//sick demo: https://www.youtube.com/watch?v=fuTDDeKs_gc
+
 //calculator code from https://kavsoft.dev/Swift/Custom%20NumberPad/
 struct CalculatorView: View {
     
@@ -14,6 +16,7 @@ struct CalculatorView: View {
     
     @State var selectedCategory : Budget = Budget(emojiString: "", title: "", budgetedValue: 0, spendType: "")
     @State private var showingCategoriesList = false
+    @State private var categoryChosen = false
     
     @State var code: [String] = []
     
@@ -45,20 +48,25 @@ struct CalculatorView: View {
                                 .foregroundColor(.black)
                                 .opacity(0.1)
                                 .cornerRadius(15)
-                            if self.selectedCategory.emojiString == "" {
-                                Image(systemName: "plus")
-                            }
-                            else {
+                            if self.categoryChosen {
                                 Text(selectedCategory.emojiString)
                             }
+                            else {
+                                Image(systemName: "plus")
+                            }
+
+                            if categoryChosen {
+                                deleteButton(on: $categoryChosen)
+                                    .offset(x: 35, y: -35)
+                            }
                         }
-                        if self.selectedCategory.title != "" {
+                        if categoryChosen {
                             Text(selectedCategory.title)
                         }
                     }
                     
                 }).sheet(isPresented: $showingCategoriesList) {
-                    CategoriesList(selectedCategory: $selectedCategory, isPresented: $showingCategoriesList)
+                    CategoriesList(selectedCategory: $selectedCategory, isPresented: $showingCategoriesList, categoryChosen: $categoryChosen)
                 }
                 .environmentObject(dataModel)
                 

@@ -11,6 +11,7 @@
 		270D76652619299B0085EFC1 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D76642619299B0085EFC1 /* CalculatorView.swift */; };
 		270D766A26192FBC0085EFC1 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D766926192FBC0085EFC1 /* ProgressBar.swift */; };
 		270D766D261931C10085EFC1 /* DonutChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D766C261931C10085EFC1 /* DonutChart.swift */; };
+		2764D139261978E5002F11D2 /* deleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2764D138261978E5002F11D2 /* deleteButton.swift */; };
 		277860522618087200DF4839 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277860512618087200DF4839 /* EmojiPicker.swift */; };
 		27786055261808CC00DF4839 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27786054261808CC00DF4839 /* String.swift */; };
 		2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778605B26181B5800DF4839 /* EmojiTextField.swift */; };
@@ -42,6 +43,7 @@
 		270D76642619299B0085EFC1 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		270D766926192FBC0085EFC1 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		270D766C261931C10085EFC1 /* DonutChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChart.swift; sourceTree = "<group>"; };
+		2764D138261978E5002F11D2 /* deleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteButton.swift; sourceTree = "<group>"; };
 		277860512618087200DF4839 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		27786054261808CC00DF4839 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		2778605B26181B5800DF4839 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				2778606126181E1C00DF4839 /* CustomButton.swift */,
 				270D766926192FBC0085EFC1 /* ProgressBar.swift */,
 				270D766C261931C10085EFC1 /* DonutChart.swift */,
+				2764D138261978E5002F11D2 /* deleteButton.swift */,
 			);
 			path = ExtraViews;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				27EEB61726183F50007247AB /* CategoriesList.swift in Sources */,
 				27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */,
 				27FC268D26191589004247E2 /* AddRecurringCostView.swift in Sources */,
+				2764D139261978E5002F11D2 /* deleteButton.swift in Sources */,
 				270D766D261931C10085EFC1 /* DonutChart.swift in Sources */,
 				270D766A26192FBC0085EFC1 /* ProgressBar.swift in Sources */,
 				27EC5D5A2617B2E300783D20 /* Color.swift in Sources */,

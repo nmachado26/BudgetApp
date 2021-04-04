@@ -14,6 +14,7 @@ struct CategoriesList: View {
     @EnvironmentObject var dataModel: BudgetModel
     @Binding var selectedCategory: Budget
     @Binding var isPresented: Bool
+    @Binding var categoryChosen: Bool
 
     //replaced by dataModel.budgetsData
     //    var budgetsData = [
@@ -33,7 +34,7 @@ struct CategoriesList: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(self.dataModel.budgetsData) { budgetItem in
-                        CategoryCell(budgetItem: budgetItem, selectedCategory: $selectedCategory, isPresented: $isPresented)
+                        CategoryCell(budgetItem: budgetItem, selectedCategory: $selectedCategory, isPresented: $isPresented, categoryChosen: $categoryChosen)
                     }
                 }
                 .padding(.horizontal, 0)
@@ -50,6 +51,7 @@ struct CategoryCell : View {
     var budgetItem: Budget
     @Binding var selectedCategory: Budget
     @Binding var isPresented: Bool
+    @Binding var categoryChosen: Bool
 
     var body: some View {
         VStack {
@@ -58,6 +60,7 @@ struct CategoryCell : View {
             Button(action: {
                 self.selectedCategory = budgetItem
                 isPresented = false
+                categoryChosen = true
             }) {
                 VStack {
                     ZStack {
