@@ -11,7 +11,7 @@ struct AddRecurringCostView: View {
     
     @EnvironmentObject var dataModel: BudgetModel
     @Binding var isPresented: Bool
-
+    
     @State var emojiText: String = ""
     @State var titleText: String = ""
     @State var budgetText: String = ""
@@ -19,26 +19,32 @@ struct AddRecurringCostView: View {
     @State var selectedType : Int = 0
     
     @State var emojiChosen: Bool = false
-
+    
     
     var body: some View {
         
         NavigationView {
             VStack { //double V-stack :(
-
-                VStack {
+                
+                
+                ZStack {
+                    HStack {
+                        BackButton(on: $isPresented)
+                            .padding(.leading, 16)
+                        Spacer()
+                    }
                     Text("New Recurring")
                         .font(bold22Font)
-                        .padding(.bottom, 20)
-                    CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
-
                 }
                 .padding(.bottom, 20)
                 .navigationBarTitle("New Budget", displayMode: .inline)
                 .navigationBarHidden(true)
-
-
-
+                
+                CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
+                
+                
+                
+                
                 TextInput(prompt: "Enter Title", text: $titleText)
                     .foregroundColor(mediumGrayColor)
                     .padding(.bottom, 20)
@@ -50,8 +56,8 @@ struct AddRecurringCostView: View {
                     .padding(.bottom, 60)
                 CreateButton(emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, objectType: "recurring", isPresented: $isPresented)
                     .environmentObject(dataModel)
-
-
+                
+                
             }
         }
     }

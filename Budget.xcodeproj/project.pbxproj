@@ -32,6 +32,7 @@
 		27BD6594261A7BB200F5E7A7 /* FivoSans-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6586261A7BB200F5E7A7 /* FivoSans-Heavy.otf */; };
 		27BD6595261A7BB200F5E7A7 /* FivoSans-Thin-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6587261A7BB200F5E7A7 /* FivoSans-Thin-Oblique.otf */; };
 		27BD6596261A7BB200F5E7A7 /* FivoSans-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD6588261A7BB200F5E7A7 /* FivoSans-Oblique.otf */; };
+		27BD65AD261AA4E400F5E7A7 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BD65AC261AA4E400F5E7A7 /* BackButton.swift */; };
 		27E9A6F52617C9640080EE6F /* AddBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6F42617C9640080EE6F /* AddBudgetView.swift */; };
 		27E9A6FD2617D77D0080EE6F /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */; };
 		27EC5D432617B24B00783D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EC5D422617B24B00783D20 /* AppDelegate.swift */; };
@@ -79,6 +80,7 @@
 		27BD6586261A7BB200F5E7A7 /* FivoSans-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Heavy.otf"; sourceTree = "<group>"; };
 		27BD6587261A7BB200F5E7A7 /* FivoSans-Thin-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Thin-Oblique.otf"; sourceTree = "<group>"; };
 		27BD6588261A7BB200F5E7A7 /* FivoSans-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Oblique.otf"; sourceTree = "<group>"; };
+		27BD65AC261AA4E400F5E7A7 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		27E9A6F42617C9640080EE6F /* AddBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetView.swift; sourceTree = "<group>"; };
 		27E9A6FC2617D77D0080EE6F /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		27EC5D3F2617B24B00783D20 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				270D766926192FBC0085EFC1 /* ProgressBar.swift */,
 				270D766C261931C10085EFC1 /* DonutChart.swift */,
 				2764D138261978E5002F11D2 /* deleteButton.swift */,
+				27BD65AC261AA4E400F5E7A7 /* BackButton.swift */,
 			);
 			path = ExtraViews;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */,
 				27786055261808CC00DF4839 /* String.swift in Sources */,
 				27EC5D472617B24B00783D20 /* ContentView.swift in Sources */,
+				27BD65AD261AA4E400F5E7A7 /* BackButton.swift in Sources */,
 				27EC5D642617B33D00783D20 /* OverviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
