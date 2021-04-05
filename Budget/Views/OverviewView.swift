@@ -110,7 +110,7 @@ struct MonthlyView : View {
                     }
                 })
                 .frame(width: 220, height: 220, alignment: .center)
-                .padding()
+                .padding(.vertical, 6)
                 VStack {
                     Text("This month")
                         .font(bold14Font)
@@ -118,7 +118,6 @@ struct MonthlyView : View {
                         .font(bold18Font)
                 }
             }
-            Spacer()
             VStack {
                 ForEach(dataModel.getChartDataModel()) { dataSet in
                     if dataSet.value > 0 {
