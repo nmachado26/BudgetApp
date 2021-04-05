@@ -37,13 +37,12 @@ struct AddRecurringCostView: View {
                         .font(bold22Font)
                 }
                 .padding(.bottom, 20)
-                .navigationBarTitle("New Budget", displayMode: .inline)
+                .padding(.top, 36)
+                .navigationBarTitle("New Recurring", displayMode: .inline)
                 .navigationBarHidden(true)
                 
                 CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
-                
-                
-                
+                    .padding(.bottom, 24)
                 
                 TextInput(prompt: "Enter Title", text: $titleText)
                     .foregroundColor(mediumGrayColor)
@@ -53,9 +52,12 @@ struct AddRecurringCostView: View {
                     .padding(.bottom, 20)
                 SegmentedControlInput(prompt: "Choose type", selected: $selectedType)
                     .foregroundColor(mediumGrayColor)
-                    .padding(.bottom, 60)
+                    .padding(.bottom, 80)
+                Spacer()
                 CreateButton(emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, objectType: "recurring", isPresented: $isPresented)
                     .environmentObject(dataModel)
+                    .padding(.bottom, 100)
+                Spacer()
                 
                 
             }

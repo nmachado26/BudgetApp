@@ -25,17 +25,22 @@ struct AddBudgetView: View {
         NavigationView {
             VStack { //double V-stack :(
 
-                VStack {
+                ZStack {
+                    HStack {
+                        BackButton(on: $isPresented)
+                            .padding(.leading, 16)
+                        Spacer()
+                    }
                     Text("New Budget")
                         .font(bold22Font)
-                        .padding(.bottom, 20)
-                    CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
-
                 }
                 .padding(.bottom, 20)
+                .padding(.top, 36)
                 .navigationBarTitle("New Budget", displayMode: .inline)
                 .navigationBarHidden(true)
-
+                
+                CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
+                    .padding(.bottom, 24)
 
 
                 TextInput(prompt: "Enter Title", text: $titleText)
@@ -47,8 +52,12 @@ struct AddBudgetView: View {
                 SegmentedControlInput(prompt: "Choose type", selected: $selectedType)
                     .padding(.bottom, 60)
                     .foregroundColor(mediumGrayColor)
+                
+                Spacer()
                 CreateButton(emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, objectType: "budget", isPresented: $isPresented)
                     .environmentObject(dataModel)
+                    .padding(.bottom, 100)
+                Spacer()
 
 
             }
