@@ -51,6 +51,8 @@ struct CalculatorView: View {
                                 }
                                 else {
                                     Image(systemName: "plus")
+                                        .font(Font.system(size: 20, weight: .heavy))
+                                        .foregroundColor(mediumGrayColor)
                                 }
                                 
                                 if categoryChosen {

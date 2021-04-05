@@ -32,7 +32,7 @@ let orangeColor: Color = Color(hex: 0xFF7800)
 let unfilledChartColor: Color = Color(hex: 0xE8E8E8)
 
 
-let emojiFont: Font = Font.custom("FivoSans-Bold", size: 34)
+let emojiFont: Font = Font.custom("FivoSans-Bold", size: 40)
 let bold28Font: Font = Font.custom("FivoSans-Bold", size: 28)
 let bold80Font: Font = Font.custom("FivoSans-Bold", size: 70)
 let bold18Font: Font = Font.custom("FivoSans-Bold", size: 18)
