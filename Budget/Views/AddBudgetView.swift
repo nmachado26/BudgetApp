@@ -42,7 +42,6 @@ struct AddBudgetView: View {
                 CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
                     .padding(.bottom, 24)
 
-
                 TextInput(prompt: "Enter Title", text: $titleText)
                     .padding(.bottom, 20)
                     .foregroundColor(mediumGrayColor)
@@ -78,7 +77,7 @@ struct TextInput: View {
                 .foregroundColor(mediumGrayColor)
                 .padding(.bottom, 10)
             CustomTextField(text: $text)
-                .font(medium14Font)
+                .font(bold16Font)
                 .foregroundColor(.black)
                 .padding(.bottom, 5)
             Rectangle()
@@ -150,21 +149,24 @@ struct CategoryButton: View {
                 if emojiChosen {
                     Text(emojiText)
                         .font(emojiFont)
-                }
-                //can do opacity change or hidden flag instead with binding value
-                if emojiChosen {
                     deleteButton(on: $emojiChosen)
                         .offset(x: 35, y: -35)
                 }
-                //Image(systemName: "face.smiling")
+                else {
+                    //can do opacity change or hidden flag instead with binding value
+                    Image(systemName: "face.smiling")
+                        .font(Font.system(size: 45, weight: .medium))
+                        .foregroundColor(mediumGrayColor)
+                    Text("+ Add emoji")
+                        .font(medium14Font)
+                        .foregroundColor(mediumGrayColor)
+                        .offset(y: 60)
+                }
+
             }
         }
         .padding(.bottom, 8)
-        if !emojiChosen {
-            Text("+ Add emoji")
-                .font(medium14Font)
-                .foregroundColor(mediumGrayColor)
-        }
+
     }
     
     
