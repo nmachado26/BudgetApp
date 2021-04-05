@@ -34,6 +34,9 @@ struct RecurringsView: View {
                     ForEach(dataModel.recurringsData.indices, id: \.self) { i in
                         RecurringCell(recurringItem: $dataModel.recurringsData[i])
                     }
+                    .sheet(isPresented: $showingAddRecurringView) {
+                        AddRecurringCostView(isPresented: $showingAddRecurringView)
+                    }
                     .padding(.horizontal, 24)
                     .padding(.top, 20)
                 }
@@ -46,9 +49,9 @@ struct RecurringsView: View {
                         }, label: {
                             Image(systemName: "plus")
                         })
-                        .sheet(isPresented: $showingAddRecurringView) {
-                            AddRecurringCostView(isPresented: $showingAddRecurringView)
-                        }
+//                        .sheet(isPresented: $showingAddRecurringView) {
+//                            AddRecurringCostView(isPresented: $showingAddRecurringView)
+//                        }
                     }
                 }
                 //.navigationBarHidden(true)
