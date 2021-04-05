@@ -42,7 +42,7 @@ struct AddRecurringCostView: View {
                 .navigationBarHidden(true)
                 
                 CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
-                    .padding(.bottom, 24)
+                    .padding(.bottom, 48)
                 
                 TextInput(prompt: "Enter Title", text: $titleText)
                     .foregroundColor(mediumGrayColor)

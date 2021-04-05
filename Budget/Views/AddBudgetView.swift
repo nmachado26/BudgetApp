@@ -10,21 +10,21 @@ import SwiftUI
 //https://stackoverflow.com/questions/11382753/change-the-ios-keyboard-layout-to-emoji/44753740#44753740
 
 struct AddBudgetView: View {
-
+    
     @EnvironmentObject var dataModel: BudgetModel
     @Binding var isPresented: Bool
-
+    
     @State var emojiText: String = ""
     @State var titleText: String = ""
     @State var budgetText: String = ""
     @State var selectedType : Int = 0
     
     @State var emojiChosen: Bool = false
-
+    
     var body: some View {
         NavigationView {
             VStack { //double V-stack :(
-
+                
                 ZStack {
                     HStack {
                         BackButton(on: $isPresented)
@@ -40,8 +40,8 @@ struct AddBudgetView: View {
                 .navigationBarHidden(true)
                 
                 CategoryButton(emojiText: $emojiText, emojiChosen: $emojiChosen)
-                    .padding(.bottom, 24)
-
+                    .padding(.bottom, 48)
+                
                 TextInput(prompt: "Enter Title", text: $titleText)
                     .padding(.bottom, 20)
                     .foregroundColor(mediumGrayColor)
@@ -55,21 +55,19 @@ struct AddBudgetView: View {
                 Spacer()
                 CreateButton(emojiText: $emojiText, titleText: $titleText, budgetText: $budgetText, selectedType: $selectedType, objectType: "budget", isPresented: $isPresented)
                     .environmentObject(dataModel)
-                    .padding(.bottom, 100)
-                Spacer()
-
-
+                    .padding(.bottom, 60)
+                
             }
         }
     }
-
+    
 }
 
 struct TextInput: View {
-
+    
     var prompt: String
     @Binding var text: String
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
@@ -88,27 +86,32 @@ struct TextInput: View {
     }
 }
 
-struct CustomTextField : View {
 
+//TextField("Some Text" , text: $someBinding).modifier(ClearButton(text: $someBinding))
+
+
+struct CustomTextField : View {
+    
     @State private var isEditing = false
     @Binding var text: String
-
+    
     var body: some View {
         VStack {
-        TextField(
-            "",
-            text: $text)
-            .disableAutocorrection(true)
-            .textFieldStyle(PlainTextFieldStyle())
+            TextField(
+                "",
+                text: $text)
+                .modifier(ClearButton(text: $text))
+                .disableAutocorrection(true)
+                .textFieldStyle(PlainTextFieldStyle())
         }
     }
 }
 
 struct SegmentedControlInput: View {
-
+    
     var prompt: String
     @Binding var selected: Int
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(prompt)
@@ -126,13 +129,13 @@ struct SegmentedControlInput: View {
 }
 
 struct CategoryButton: View {
-
+    
     @State var isFirstResponder = false
-
+    
     @Binding var emojiText: String
     @Binding var emojiChosen: Bool
-
-
+    
+    
     var body: some View {
         Button(action: {
             self.isFirstResponder = true
@@ -162,21 +165,21 @@ struct CategoryButton: View {
                         .foregroundColor(mediumGrayColor)
                         .offset(y: 60)
                 }
-
+                
             }
         }
         .padding(.bottom, 8)
-
+        
     }
     
     
-
+    
 }
 
 struct CreateButton : View {
-
+    
     @EnvironmentObject var dataModel: BudgetModel
-
+    
     @Binding var emojiText: String
     @Binding var titleText: String
     @Binding var budgetText: String
@@ -184,14 +187,14 @@ struct CreateButton : View {
     
     var objectType : String
     @Binding var isPresented: Bool
-
+    
     var body: some View {
-
+        
         Button(action: {
             print("button pressed")
             if self.objectType == "budget" {
                 self.saveBudgetModel()
-               // self.saveRecurringCostModel()
+                // self.saveRecurringCostModel()
             }
             else {
                 //self.saveBudgetModel()
@@ -210,13 +213,13 @@ struct CreateButton : View {
             }
         }
     }
-
+    
     func saveBudgetModel() {
         var type = "want"
         if self.selectedType == 0 {
             type = "need"
         }
-
+        
         if let budgetValue = Int(self.budgetText) {
             let viewModel = Budget(emojiString: self.emojiText, title: self.titleText, budgetedValue: budgetValue, spendType: type)
             self.dataModel.addBudget(budget: viewModel)
@@ -249,3 +252,36 @@ struct CreateButton : View {
 //        AddBudgetView()
 //    }
 //}
+
+
+struct ClearButton: ViewModifier
+{
+    @Binding var text: String
+    
+    public func body(content: Content) -> some View
+    {
+        ZStack(alignment: .trailing)
+        {
+            content
+            
+            if !text.isEmpty
+            {
+                Button(action:
+                        {
+                            self.text = ""
+                        })
+                {
+                    ZStack {
+                        Circle()
+                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(cellBackgroundColor)
+                        Image(systemName: "xmark")
+                            .font(Font.system(size: 10, weight: .black))
+                            .foregroundColor(mediumGrayColor)
+                    }
+                }
+                .padding(.trailing, 8)
+            }
+        }
+    }
+}

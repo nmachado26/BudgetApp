@@ -21,6 +21,7 @@ struct deleteButton: View {
                     .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(cellBackgroundColor)
                 Image(systemName: "xmark")
+                    .font(Font.system(size: 14, weight: .black))
                     .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(mediumGrayColor)
             }
