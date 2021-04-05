@@ -247,12 +247,7 @@ struct CreateButton : View {
 }
 
 
-//struct AddBudgetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddBudgetView()
-//    }
-//}
-
+//https://stackoverflow.com/questions/58200555/swiftui-add-clearbutton-to-textfield
 
 struct ClearButton: ViewModifier
 {
@@ -273,10 +268,10 @@ struct ClearButton: ViewModifier
                 {
                     ZStack {
                         Circle()
-                            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: 17, height: 17, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .foregroundColor(cellBackgroundColor)
                         Image(systemName: "xmark")
-                            .font(Font.system(size: 10, weight: .black))
+                            .font(Font.system(size: 9, weight: .black))
                             .foregroundColor(mediumGrayColor)
                     }
                 }
