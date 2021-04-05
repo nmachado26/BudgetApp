@@ -16,18 +16,18 @@ struct OverviewView: View {
         backgroundGrayColor
             .ignoresSafeArea(.all) // Ignore just for the color
             .overlay(
-                VStack(spacing: 24) {
+                VStack(alignment: .leading, spacing: 24) {
+                    Text("Overview")
+                        .font(bold28Font)
                     StatusView()
                         .cornerRadius(10)
-                        .padding(.horizontal, 20)
-                        .padding(.top, 200)
                         .environmentObject(dataModel)
                     MonthlyView()
                         .cornerRadius(10)
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 200)
                         .environmentObject(dataModel)
                 }
+                .padding(.horizontal, 24)
+                .padding(.top, 24)
             
             )
     
@@ -78,7 +78,7 @@ struct StatusView: View {
             }
             
         }
-        .padding(.horizontal, 32)
+        .padding(.horizontal, 16)
         .padding(.vertical, 16)
         .background(Color(.white))
     }
@@ -93,11 +93,12 @@ struct MonthlyView : View {
     
     var body: some View {
         
-        VStack(alignment: .leading) {
+        VStack(alignment: .center) {
             Text("January Outlook")
                 .font(bold18Font)
                 .padding(.top, 16)
                 .padding(.bottom, 16)
+                .frame(alignment: .leading) // how to override alignment?
             
             ZStack {
                 DonutChart(dataModel: ChartDataModel.init(dataModel: dataModel.getChartDataModel()), onTap: {
@@ -108,7 +109,7 @@ struct MonthlyView : View {
                         self.selectedDonut = ""
                     }
                 })
-                .frame(width: 260, height: 260, alignment: .center)
+                .frame(width: 220, height: 220, alignment: .center)
                 .padding()
                 VStack {
                     Text("This month")
@@ -120,17 +121,19 @@ struct MonthlyView : View {
             Spacer()
             VStack {
                 ForEach(dataModel.getChartDataModel()) { dataSet in
-                    HStack {
-                        Rectangle()
-                            .frame(width: 6, height: 20)
-                            .cornerRadius(10) //overdone
-                            .foregroundColor(dataSet.color)
-                        Text(dataSet.name)
-                            .font(bold16Font)
-                        
-                        Spacer()
-                        Text("$\(Int(dataSet.value))")
-                            .font(bold14Font)
+                    if dataSet.value > 0 {
+                        HStack {
+                            Rectangle()
+                                .frame(width: 6, height: 20)
+                                .cornerRadius(10) //overdone
+                                .foregroundColor(dataSet.color)
+                            Text(dataSet.name)
+                                .font(bold16Font)
+                            
+                            Spacer()
+                            Text("$\(Int(dataSet.value))")
+                                .font(bold14Font)
+                        }
                     }
                 }
                 .padding(.horizontal, 24)
@@ -138,7 +141,7 @@ struct MonthlyView : View {
             
         }
         .padding(.vertical, 16)
-        .padding(.horizontal, 32)
+        .padding(.horizontal, 16)
         .background(Color(.white))
         
     }

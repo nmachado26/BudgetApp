@@ -34,7 +34,7 @@ let unfilledChartColor: Color = Color(hex: 0xE8E8E8)
 
 let emojiFont: Font = Font.custom("FivoSans-Bold", size: 34)
 let bold28Font: Font = Font.custom("FivoSans-Bold", size: 28)
-let bold80Font: Font = Font.custom("FivoSans-Bold", size: 80)
+let bold80Font: Font = Font.custom("FivoSans-Bold", size: 70)
 let bold18Font: Font = Font.custom("FivoSans-Bold", size: 18)
 let medium14Font: Font = Font.custom("FivoSans-Medium", size: 14)
 let bold14Font: Font = Font.custom("FivoSans-Bold", size: 14)
