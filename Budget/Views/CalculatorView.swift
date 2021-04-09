@@ -34,8 +34,12 @@ struct CalculatorView: View {
                             .font(bold80Font)
                         Text(code.joined(separator:""))
                             .font(bold80Font)
-                    }.padding(.bottom, 48)
+                    }.padding(.bottom, 24)
                     
+                    Text("Add a memo")
+                        .font(medium14Font)
+                        .foregroundColor(mediumGrayColor)
+                        .padding(.bottom, 24)
                     Button(action: {
                         self.showingCategoriesList = true
                     }, label: {
@@ -73,13 +77,16 @@ struct CalculatorView: View {
                     }).sheet(isPresented: $showingCategoriesList) {
                         CategoriesList(selectedCategory: $selectedCategory, isPresented: $showingCategoriesList, categoryChosen: $categoryChosen)
                     }
-                    .padding(.bottom, 32)
+                    //.padding(.bottom, 48)
                     .environmentObject(dataModel)
                 }
-                .offset(y: -24)
+                .offset(y: -24) //pls fix this it's is horrendous
+                
+                Spacer()
                 
                 NumberPad(codes: $code, selectedCategory: $selectedCategory, categoryChosen: $categoryChosen)
                     .padding(.horizontal, calcMargin)
+                    .padding(.bottom, 32)
                     .environmentObject(dataModel)
             }
         }
@@ -123,21 +130,18 @@ struct NumberPad : View {
                             if j.value == "chevron.backward"{
                                 Image(systemName: j.value)
                                     .font(Font.system(size: 20, weight: .heavy))
-                                    .padding(.bottom, 76)
                                     .offset(x: 7, y: -3)
                             }
                             else if j.value == "checkmark.circle.fill" {
                                 Image(systemName: j.value)
                                     .font(Font.system(size: 30))
                                     .foregroundColor(primaryColor)
-                                    .padding(.bottom, 76)
                                     .offset(x: 3, y: -2)
                             }
                             else {
                                 if j.value == "0" {
                                     Text(j.value)
                                         .font(bold28Font)
-                                        .padding(.bottom, 76)
                                         .frame(maxWidth: .infinity, alignment: .center)
                                         .offset(x: 8)
                                 }
