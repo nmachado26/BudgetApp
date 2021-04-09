@@ -49,14 +49,6 @@ struct CalculatorView: View {
                                 if self.categoryChosen {
                                     Text(selectedCategory.emojiString)
                                         .font(emojiFont)
-                                }
-                                else {
-                                    Image(systemName: "plus")
-                                        .font(Font.system(size: 20, weight: .heavy))
-                                        .foregroundColor(mediumGrayColor)
-                                }
-                                
-                                if categoryChosen {
                                     deleteButton(on: $categoryChosen)
                                         .offset(x: 35, y: -35)
                                     Text(selectedCategory.title)
@@ -64,8 +56,19 @@ struct CalculatorView: View {
                                         .foregroundColor(mediumGrayColor)
                                         .offset(y: 60)
                                 }
+                                else {
+                                    Image(systemName: "plus")
+                                        .font(Font.system(size: 20, weight: .heavy))
+                                        .foregroundColor(mediumGrayColor)
+                                    Text("Select category")
+                                        .font(medium14Font)
+                                        .foregroundColor(mediumGrayColor)
+                                        .offset(y: 60)
+                                }
                             }
                         }
+                        
+                        
                         
                     }).sheet(isPresented: $showingCategoriesList) {
                         CategoriesList(selectedCategory: $selectedCategory, isPresented: $showingCategoriesList, categoryChosen: $categoryChosen)
