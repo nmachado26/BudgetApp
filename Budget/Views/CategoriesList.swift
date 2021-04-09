@@ -16,13 +16,6 @@ struct CategoriesList: View {
     @Binding var isPresented: Bool
     @Binding var categoryChosen: Bool
 
-    //replaced by dataModel.budgetsData
-    //    var budgetsData = [
-    //        Budget(emojiString: "🍔", title: "Food", budgetedValue: 300, spendType: "Need"),
-    //        Budget(emojiString: "☕️", title: "Coffee", budgetedValue: 80, spendType: "Want"),
-    //        Budget(emojiString: "💗", title: "Dates", budgetedValue: 200, spendType: "Want"),
-    //    ]
-
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -30,7 +23,12 @@ struct CategoriesList: View {
     ]
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 24) {
+            Text("Your Budgets")
+                .font(bold28Font)
+                .padding(.top, 54)
+                .padding(.leading, 16)
+                .frame(height: 60)
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(self.dataModel.budgetsData) { budgetItem in

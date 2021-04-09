@@ -38,7 +38,7 @@ struct BudgetView: View {
                         }
                     }
                     .padding(.horizontal, 0)
-                    .padding(.top, 20)
+                    .padding(.top, 24)
                 }
                 .environmentObject(dataModel)
                 .sheet(isPresented: $showingAddBudgetView) {
@@ -52,9 +52,6 @@ struct BudgetView: View {
                         }, label: {
                             Image(systemName: "plus")
                         })
-//                        .sheet(isPresented: $showingAddBudgetView) {
-//                            AddBudgetView(isPresented: $showingAddBudgetView)
-//                        }
                     }
                 }
                 //.navigationBarHidden(true)

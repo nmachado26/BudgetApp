@@ -33,12 +33,13 @@ struct RecurringsView: View {
                 ScrollView {
                     ForEach(dataModel.recurringsData.indices, id: \.self) { i in
                         RecurringCell(recurringItem: $dataModel.recurringsData[i])
+                            .padding(.bottom, 16)
                     }
                     .sheet(isPresented: $showingAddRecurringView) {
                         AddRecurringCostView(isPresented: $showingAddRecurringView)
                     }
                     .padding(.horizontal, 24)
-                    .padding(.top, 20)
+                    .padding(.top, 24)
                 }
                 .environmentObject(dataModel)
                 .navigationBarTitle("Recurring", displayMode: .inline)
@@ -49,12 +50,8 @@ struct RecurringsView: View {
                         }, label: {
                             Image(systemName: "plus")
                         })
-//                        .sheet(isPresented: $showingAddRecurringView) {
-//                            AddRecurringCostView(isPresented: $showingAddRecurringView)
-//                        }
                     }
                 }
-                //.navigationBarHidden(true)
             }
         }
     }

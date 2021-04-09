@@ -22,6 +22,7 @@ struct CalculatorView: View {
     @State private var categoryChosen = false
     
     @State var code: [String] = []
+    //@State var code: String = " //for future when doing auto . for inputting number
     
     var body: some View {
         NavigationView {
