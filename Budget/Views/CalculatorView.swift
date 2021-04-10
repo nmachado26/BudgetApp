@@ -95,7 +95,7 @@ struct CalculatorView: View {
                 
                 Spacer()
                 
-                NumberPad(codes: $code, selectedCategory: $selectedCategory, categoryChosen: $categoryChosen)
+                NumberPad(codes: $code, selectedCategory: $selectedCategory, categoryChosen: $categoryChosen, memo: $memo)
                     .padding(.horizontal, calcMargin)
                     .padding(.bottom, 32)
                     .environmentObject(dataModel)
@@ -113,6 +113,8 @@ struct NumberPad : View {
     
     @State private var currentString: String = ""
     
+    @Binding var memo : String
+    
     
     var body : some View {
         
@@ -128,10 +130,14 @@ struct NumberPad : View {
                             }
                             else if j.value == "checkmark.circle.fill" {
                                 if !codes.isEmpty {
-                                    let expenseStr = codes.joined(separator:"")
-                                    dataModel.addExpense(budget: self.selectedCategory, expenseString: expenseStr)
-                                    self.codes.removeAll()
-                                    self.categoryChosen = false
+                                    if let expense = Int(codes.joined(separator:"")) {
+                                        dataModel.addExpense(budget: self.selectedCategory, transaction: Transaction(value: expense, memo: self.memo, date: Date()))
+                                        self.codes.removeAll()
+                                        self.categoryChosen = false
+                                    }
+                                    else {
+                                        print("ERROR cant be converted to int")
+                                    }
                                 }
                             }
                             else {

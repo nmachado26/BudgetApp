@@ -30,20 +30,6 @@ final class BudgetModel: ObservableObject {
 
         self.recurringsData = realm.objects(RecurringCost.self).toArray(type: RecurringCost.self)
 
-        
-        
-//        self.budgetsData.append(contentsOf: [
-//            Budget(emojiString: "🍔", title: "Food", budgetedValue: 300, spendType: "need"),
-//            Budget(emojiString: "☕️", title: "Coffee", budgetedValue: 80, spendType: "want"),
-//            Budget(emojiString: "💗", title: "Dates", budgetedValue: 200, spendType: "want"),
-//        ])
-//
-//        self.recurringsData.append(contentsOf: [
-//            RecurringCost(emojiString: "🏋️‍♀️", title: "Gym", value: 120, spendType: "need"),
-//            RecurringCost(emojiString: "🏠", title: "Rent", value: 1300, spendType: "need"),
-//            RecurringCost(emojiString: "🎥", title: "Netflix", value: 10, spendType: "want")
-//        ])
-
     }
 
     func addBudget(budget: Budget) {
@@ -72,15 +58,12 @@ final class BudgetModel: ObservableObject {
         print("hello")
     }
 
-    func addExpense(budget: Budget, expenseString: String) {
+    func addExpense(budget: Budget, transaction: Transaction) {
 //        guard let i = self.budgetsData.firstIndex(of: budget) else {
 //            print("ERROR addExpense. no instance of budget found")
 //            return
 //        }
-        guard let expense = Int(expenseString) else {
-            print("ERROR addExpense. expense cant be converted to int")
-            return
-        }
+
 //        budget.currentSpend = budget.currentSpend + expense
 //        let updatedBudget = Budget(emojiString: budget.emojiString, title: budget.title, budgetedValue: budget.budgetedValue - expense, spendType: budget.spendType)
 //        self.budgetsData.insert(updatedBudget, at: i)
@@ -89,8 +72,12 @@ final class BudgetModel: ObservableObject {
 
         let realm = try! Realm()
         try! realm.write {
-            budget.currentSpend = budget.currentSpend + expense
+            budget.currentSpend = budget.currentSpend + transaction.value
         }
+        
+        budget.addTransaction(transaction: transaction)
+        
+        
     }
 }
 

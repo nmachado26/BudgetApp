@@ -14,7 +14,13 @@ struct BudgetDetail: View {
     @State var circleColor = Color.yellow
     
     var body: some View {
-        Text("Hello World")
+        VStack {
+            ForEach(budget.transactions) { transaction in
+                Text(transaction.memo)
+            }
+        }
+        
+        
     }
     
 }
@@ -25,15 +31,15 @@ struct BudgetDetail: View {
  Gesture long press
  
  Circle()
-         .foregroundColor(circleColor)
-         .frame(width: 200, height: 200, alignment: .center)
-         // 3.
-         .gesture(LongPressGesture(minimumDuration: 2)
-         .onEnded { _ in
-             if self.circleColor == .yellow {
-                 self.circleColor = .red
-             } else {
-                 self.circleColor = .yellow
-             }
-         })
+ .foregroundColor(circleColor)
+ .frame(width: 200, height: 200, alignment: .center)
+ // 3.
+ .gesture(LongPressGesture(minimumDuration: 2)
+ .onEnded { _ in
+ if self.circleColor == .yellow {
+ self.circleColor = .red
+ } else {
+ self.circleColor = .yellow
+ }
+ })
  */

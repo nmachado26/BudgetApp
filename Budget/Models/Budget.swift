@@ -27,6 +27,9 @@ class Budget: Object, Identifiable {
     @objc dynamic var title: String = ""
     @objc dynamic var budgetedValue: Int = 0
     @objc dynamic var spendType: String = ""
+    
+    let transactions  = RealmSwift.List<Transaction>()
+    //@objc dynamic var transactions: [Transaction] = [Transaction]()
 
     @objc dynamic var currentSpend: Int = 0
 
@@ -52,6 +55,13 @@ class Budget: Object, Identifiable {
 
     func remainingValue() -> Int {
         return budgetedValue - currentSpend
+    }
+    
+    func addTransaction(transaction: Transaction) {
+        let realm = try! Realm()
+        try! realm.write {
+            self.transactions.insert(transaction, at: 0)
+        }
     }
 
 
