@@ -76,6 +76,7 @@ struct RecurringCell : View {
             Spacer()
             Text("$\(recurringItem.monthlyCost) / mo ")
                 .font(medium14Font)
-        }.padding(.horizontal, 0)
+        }
+        .padding(.horizontal, 0)
     }
 }

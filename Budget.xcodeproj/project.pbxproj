@@ -18,6 +18,7 @@
 		2778605C26181B5800DF4839 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778605B26181B5800DF4839 /* EmojiTextField.swift */; };
 		2778606226181E1C00DF4839 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2778606126181E1C00DF4839 /* CustomButton.swift */; };
 		277A7E862618F8DC0062E5B5 /* RealmExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277A7E852618F8DC0062E5B5 /* RealmExtensions.swift */; };
+		278BF47F262169D4003E5660 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BF47E262169D4003E5660 /* Transaction.swift */; };
 		27BD6589261A7BB200F5E7A7 /* FivoSans-Light-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD657B261A7BB200F5E7A7 /* FivoSans-Light-Oblique.otf */; };
 		27BD658A261A7BB200F5E7A7 /* FivoSans-Bold-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD657C261A7BB200F5E7A7 /* FivoSans-Bold-Oblique.otf */; };
 		27BD658B261A7BB200F5E7A7 /* FivoSans-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27BD657D261A7BB200F5E7A7 /* FivoSans-Black.otf */; };
@@ -66,6 +67,7 @@
 		2778605B26181B5800DF4839 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
 		2778606126181E1C00DF4839 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		277A7E852618F8DC0062E5B5 /* RealmExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtensions.swift; sourceTree = "<group>"; };
+		278BF47E262169D4003E5660 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		27BD657B261A7BB200F5E7A7 /* FivoSans-Light-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Light-Oblique.otf"; sourceTree = "<group>"; };
 		27BD657C261A7BB200F5E7A7 /* FivoSans-Bold-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Bold-Oblique.otf"; sourceTree = "<group>"; };
 		27BD657D261A7BB200F5E7A7 /* FivoSans-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FivoSans-Black.otf"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				27EC5D6E2617BD3500783D20 /* Budget.swift */,
 				27EC5D712617BDEB00783D20 /* RecurringCost.swift */,
 				27EEB613261839A6007247AB /* BudgetModel.swift */,
+				278BF47E262169D4003E5660 /* Transaction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				270D766D261931C10085EFC1 /* DonutChart.swift in Sources */,
 				270D766A26192FBC0085EFC1 /* ProgressBar.swift in Sources */,
 				27EC5D5A2617B2E300783D20 /* Color.swift in Sources */,
+				278BF47F262169D4003E5660 /* Transaction.swift in Sources */,
 				27EC5D722617BDEB00783D20 /* RecurringCost.swift in Sources */,
 				277A7E862618F8DC0062E5B5 /* RealmExtensions.swift in Sources */,
 				27EEB614261839A6007247AB /* BudgetModel.swift in Sources */,

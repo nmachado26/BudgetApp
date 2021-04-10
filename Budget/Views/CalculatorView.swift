@@ -17,6 +17,8 @@ struct CalculatorView: View {
     
     @EnvironmentObject var dataModel: BudgetModel
     
+    @State private var memo : String = ""
+    
     @State var selectedCategory : Budget = Budget(emojiString: "", title: "", budgetedValue: 0, spendType: "")
     @State private var showingCategoriesList = false
     @State private var categoryChosen = false
@@ -26,7 +28,7 @@ struct CalculatorView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(alignment: .center) {
                 
                 Group {
                     HStack(spacing: 5) {
@@ -36,10 +38,19 @@ struct CalculatorView: View {
                             .font(bold80Font)
                     }.padding(.bottom, 24)
                     
-//                    Text("Add a memo")
-//                        .font(medium14Font)
-//                        .foregroundColor(mediumGrayColor)
-//                        .padding(.bottom, 24)
+                    HStack {
+                        Spacer()
+                        TextField("Add a memo", text: $memo)
+                            //.frame(width:300, height:50, alignment:.center)
+                            .multilineTextAlignment(.center)
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .font(medium16Font)
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    .padding(.bottom, 24)
+                    .padding(.horizontal, 16)
+                    
                     Button(action: {
                         self.showingCategoriesList = true
                     }, label: {

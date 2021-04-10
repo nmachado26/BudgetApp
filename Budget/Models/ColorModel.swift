@@ -37,6 +37,7 @@ let bold28Font: Font = Font.custom("FivoSans-Bold", size: 28)
 let bold80Font: Font = Font.custom("FivoSans-Bold", size: 70)
 let bold18Font: Font = Font.custom("FivoSans-Bold", size: 18)
 let medium14Font: Font = Font.custom("FivoSans-Medium", size: 14)
+let medium16Font: Font = Font.custom("FivoSans-Medium", size: 16)
 let bold14Font: Font = Font.custom("FivoSans-Bold", size: 14)
 let medium13Font: Font = Font.custom("FivoSans-Medium", size: 13)
 
