@@ -59,7 +59,7 @@ struct StatusView: View {
                     .frame(width: 6, height: 20)
                     .cornerRadius(10) //overdone
                     .foregroundColor(.black)
-                Text("Spent")
+                Text("Budget spent + recurring")
                     .font(bold16Font)
                 Spacer()
                 Text("$\(dataModel.getTotalSpent())")
@@ -70,7 +70,7 @@ struct StatusView: View {
                     .frame(width: 6, height: 20)
                     .cornerRadius(10) //overdone
                     .foregroundColor(unfilledChartColor)
-                Text("Budget")
+                Text("Monthly Budget")
                     .font(bold16Font)
                 Spacer()
                 Text("$\(dataModel.getTotalBudget())")

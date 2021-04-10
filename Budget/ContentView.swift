@@ -16,19 +16,20 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selection) {
             CalculatorView().tabItem {
-                selection == 0 ? Image(systemName: "house.fill") : Image(systemName: "house")
-                Text("Home")
+                Image(systemName: "plus")
+                Text("Add")
             }.tag(0)
             BudgetView().tabItem {
-                selection == 1 ? Image(systemName: "house.fill") : Image(systemName: "house")
+                Image(systemName: "creditcard")
                 Text("Budget")
             }.tag(1)
             RecurringsView().tabItem {
-                selection == 2 ? Image(systemName: "house.fill") : Image(systemName: "house")
+                Image(systemName: "repeat")
                 Text("Recurring")
             }.tag(2)
             OverviewView().tabItem {
-                selection == 3 ? Image(systemName: "house.fill") : Image(systemName: "house")
+                Image(systemName: "house")
+                //selection == 3 ? Image(systemName: "house.fill") : Image(systemName: "house")
                 Text("Overview")
             }.tag(3)
         }

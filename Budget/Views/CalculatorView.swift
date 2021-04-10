@@ -36,10 +36,10 @@ struct CalculatorView: View {
                             .font(bold80Font)
                     }.padding(.bottom, 24)
                     
-                    Text("Add a memo")
-                        .font(medium14Font)
-                        .foregroundColor(mediumGrayColor)
-                        .padding(.bottom, 24)
+//                    Text("Add a memo")
+//                        .font(medium14Font)
+//                        .foregroundColor(mediumGrayColor)
+//                        .padding(.bottom, 24)
                     Button(action: {
                         self.showingCategoriesList = true
                     }, label: {
